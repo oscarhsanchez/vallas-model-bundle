@@ -1,0 +1,4 @@
+services:
+#    vallas_model.example:
+#        class: Vallas\ModelBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

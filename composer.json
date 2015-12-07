@@ -1,0 +1,34 @@
+{
+  "name" : "vallas/model-bundle",
+  "description" : "Common ESocial model bundle",
+  "type" : "symfony-bundle",
+  "homepage": "https://bitbucket.org/esocialtech/vallas-model-bundle.git",
+  "authors" : [{
+    "name" : "eSocial Technologies",
+    "email" : "info@esocialtechnologies.com",
+    "homepage": "http://www.esocialtechnologies.com"
+  }],
+  "license" : [
+    "propietary"
+  ],
+  "require" : {
+    "php": ">=5.3.3",
+    "esocial/esocial-model-bundle": "dev-master",
+    "friendsofsymfony/user-bundle": "dev-master"
+  },
+  "require-dev": {
+    "doctrine/doctrine-fixtures-bundle": "dev-master",
+    "doctrine/data-fixtures": "dev-master"
+  },
+  "autoload" : {
+    "psr-0" : {
+      "Vallas\\ModelBundle" : ""
+    }
+  },
+  "target-dir" : "Vallas/ModelBundle",
+  "extra" : {
+    "branch-alias" : {
+      "dev-master" : "dev-master"
+    }
+  }
+}

@@ -1,0 +1,3 @@
+vallas_model_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: VallasModelBundle:Default:index }
