@@ -1,0 +1,40 @@
+Vallas\ModelBundle\Entity\User:
+    admin:
+        username: admin
+        name: Administrator
+        email: admin@qvel.com
+        plainPassword: 123
+        active: true
+        enabled: true
+        locked: false
+        phone: <phoneNumber()>
+        roles:
+            - ROLE_ADMIN
+        token: <sha1()>
+        surnames: <word()>
+    superAdmin:
+        username: superadmin
+        name: Super Administrador
+        email: superadmin@qvel.com
+        plainPassword: 123
+        active: true
+        enabled: true
+        locked: false
+        phone: <phoneNumber()>
+        roles:
+            - ROLE_SUPER_ADMIN
+        token: <sha1()>
+        surnames: <word()>
+    user{1..10}:
+        username: <username()><current()>
+        name: <name()>
+        email: <email()>
+        plainPassword: correctPassword
+        active: true
+        enabled: true
+        locked: false
+        phone: <phoneNumber()>
+        roles:
+            - ROLE_USER
+        token: <sha1()>
+        surnames: <word()>
