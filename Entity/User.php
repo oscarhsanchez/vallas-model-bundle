@@ -9,7 +9,7 @@ use ESocial\ModelBundle\Entity\User as ESocialBaseUser;
  * User
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="\ESocial\ModelBundle\Entity\UserRepository")
  */
 class User extends ESocialBaseUser
 {
@@ -32,5 +32,14 @@ class User extends ESocialBaseUser
     {
         return $this->id;
     }
-}
 
+    /**
+     * Get active
+     *
+     * @return integer
+     */
+    public function getActive()
+    {
+        return $this->active;
+    }
+}
