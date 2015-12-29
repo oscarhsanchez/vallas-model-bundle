@@ -35,7 +35,7 @@ class Report extends GenericEntity
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -64,6 +64,14 @@ class Report extends GenericEntity
      * @ORM\Column(type="string", length=255, nullable = true)
      */
     protected $parameters;
+
+    /**
+     * @var ReportSubcategory
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\ReportSubcategory")
+     * @ORM\JoinColumn(name="subcategory_id", referencedColumnName="id")
+     */
+    protected $subcategory;
 
     /** @ORM\Column(type="datetime", nullable = true) */
     protected $created_at;
@@ -285,5 +293,29 @@ class Report extends GenericEntity
     public function getActive()
     {
         return $this->active;
+    }
+
+    /**
+     * Set subcategory
+     *
+     * @param \Vallas\ModelBundle\Entity\ReportSubcategory $subcategory
+     *
+     * @return Report
+     */
+    public function setSubcategory(\Vallas\ModelBundle\Entity\ReportSubcategory $subcategory = null)
+    {
+        $this->subcategory = $subcategory;
+
+        return $this;
+    }
+
+    /**
+     * Get subcategory
+     *
+     * @return \Vallas\ModelBundle\Entity\ReportSubcategory
+     */
+    public function getSubcategory()
+    {
+        return $this->subcategory;
     }
 }
