@@ -1,3 +1,96 @@
+Vallas\ModelBundle\Entity\SecuritySubmodule:
+    submodule_{1..10}:
+        token: <sha1()>
+        name: <word()>
+        created_at: <dateTimeThisYear('now')>
+        updated_at: <dateTimeThisYear('now')>
+
+Vallas\ModelBundle\Entity\Role:
+    role_1:
+      code: ROLE_SUPER_ADMIN
+      name: Super Administrador
+      token: <sha1()>
+      created_at: <dateTimeThisMonth()>
+      updated_at: <dateTimeBetween('now', 'now')>
+    role_2:
+      code: ROLE_ADMIN
+      name: Administrador
+      token: <sha1()>
+      created_at: <dateTimeThisMonth()>
+      updated_at: <dateTimeBetween('now', 'now')>
+    role_3:
+      code: ROLE_UBICACIONES
+      name: Ubicaciones
+      token: <sha1()>
+      created_at: <dateTimeThisMonth()>
+      updated_at: <dateTimeBetween('now', 'now')>
+    role_4:
+      code: ROLE_LEGAL
+      name: Legal
+      token: <sha1()>
+      created_at: <dateTimeThisMonth()>
+      updated_at: <dateTimeBetween('now', 'now')>
+    role_5:
+      code: ROLE_COMERCIAL
+      name: Comercial
+      token: <sha1()>
+      created_at: <dateTimeThisMonth()>
+      updated_at: <dateTimeBetween('now', 'now')>
+    role_6:
+      code: ROLE_IMPRESION
+      name: Impresión
+      token: <sha1()>
+      created_at: <dateTimeThisMonth()>
+      updated_at: <dateTimeBetween('now', 'now')>
+    role_7:
+      code: ROLE_CUENTAS_POR_COBRAR
+      name: Cuentas Por cobrar
+      token: <sha1()>
+      created_at: <dateTimeThisMonth()>
+      updated_at: <dateTimeBetween('now', 'now')>
+    role_8:
+      code: ROLE_CUENTAS_POR_PAGAR
+      name: Cuentas Por Pagar
+      token: <sha1()>
+      created_at: <dateTimeThisMonth()>
+      updated_at: <dateTimeBetween('now', 'now')>
+    role_9:
+      code: ROLE_TESORERIA
+      name: Tesorería
+      token: <sha1()>
+      created_at: <dateTimeThisMonth()>
+      updated_at: <dateTimeBetween('now', 'now')>
+    role_10:
+      code: ROLE_COMPRAS
+      name: Compras
+      token: <sha1()>
+      created_at: <dateTimeThisMonth()>
+      updated_at: <dateTimeBetween('now', 'now')>
+    role_11:
+      code: ROLE_OPERACIONES
+      name: Operaciones
+      token: <sha1()>
+      created_at: <dateTimeThisMonth()>
+      updated_at: <dateTimeBetween('now', 'now')>
+    role_12:
+      code: ROLE_ALMACENES
+      name: Almacenes
+      token: <sha1()>
+      created_at: <dateTimeThisMonth()>
+      updated_at: <dateTimeBetween('now', 'now')>
+    role_13:
+      code: ROLE_CONTABILIDAD
+      name: Contabilidad
+      token: <sha1()>
+      created_at: <dateTimeThisMonth()>
+      updated_at: <dateTimeBetween('now', 'now')>
+    role_14:
+      code: ROLE_CUSTOM
+      name: Personalizado
+      token: <sha1()>
+      created_at: <dateTimeThisMonth()>
+      updated_at: <dateTimeBetween('now', 'now')>
+
 Vallas\ModelBundle\Entity\User:
     admin:
         username: admin
@@ -29,12 +122,47 @@ Vallas\ModelBundle\Entity\User:
         username: <username()><current()>
         name: <name()>
         email: <email()>
-        plainPassword: correctPassword
+        plainPassword: 123
         active: true
         enabled: true
         locked: false
         phone: <phoneNumber()>
         roles:
-            - ROLE_USER
+            - ROLE_CONTABILIDAD
         token: <sha1()>
         surnames: <word()>
+
+Vallas\ModelBundle\Entity\ReportCategory:
+  category_{1..5}:
+    token: <sha1()>
+    name: <word()>
+    status: 1
+    created_at: <dateTimeThisYear('now')>
+    updated_at: <dateTimeThisYear('now')>
+
+Vallas\ModelBundle\Entity\ReportSubcategory:
+  subcategory_{1..10}:
+    token: <sha1()>
+    category: @category_<numberBetween(1, 5)>
+    name: <word()>
+    status: 1
+    created_at: <dateTimeThisYear('now')>
+    updated_at: <dateTimeThisYear('now')>
+
+Vallas\ModelBundle\Entity\Report:
+  report_{1..20}:
+    route: /reports
+    token: <sha1()>
+    name: <word()>
+    createdAt: <dateTimeThisYear('now')>
+    updatedAt: <dateTimeThisYear('now')>
+    subcategory: @subcategory_<numberBetween(1, 10)>
+
+Vallas\ModelBundle\Entity\SecuritySubmodulePermission:
+  role_permission_{1..30}:
+    role: @role_<numberBetween(1, 14)>
+    submodule: @submodule_<numberBetween(1, 10)>
+    permissions: C,R,U
+    token: <sha1()>
+    createdAt: <dateTimeThisYear('now')>
+    updatedAt: <dateTimeThisYear('now')>
