@@ -11,4 +11,29 @@ use ESocial\ModelBundle\Entity\GenericRepository;
  */
 class SecuritySubmodulePermissionRepository extends GenericRepository
 {
+    public function deleteByUser($userId){
+        $qb = $this->createQueryBuilder('s');
+        $qb->delete('VallasModelBundle:SecuritySubmodulePermission', 's');
+        $qb->andWhere($qb->expr()->eq('s.user', ':user'));
+        $qb->setParameter(':user', $userId);
+        $qb->getQuery()->execute();
+    }
+
+    public function getAllByRoleAndUser($roleId, $userId=null){
+
+        $qb = $this->createQueryBuilder('s')
+            ->leftJoin('s.submodule', 'submodule')
+            ->where('s.role = :role AND (s.user IS NULL OR s.user = :user)')
+            ->setParameter('role', $roleId)
+            ->setParameter('user', $userId);
+
+        $permissions = $qb->getQuery()->getResult();
+        $arr = array();
+        foreach($permissions as $permission){
+            $arr[$permission->getSubmodule()->getCode()] = explode(',', $permission->getPermissions());
+        }
+
+        return $arr;
+    }
+
 }
