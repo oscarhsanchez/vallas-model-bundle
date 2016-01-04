@@ -2,6 +2,7 @@
 
 namespace Vallas\ModelBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use ESocial\ModelBundle\Entity\GenericEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -16,6 +17,14 @@ class SecuritySubmodule extends GenericEntity
     public function __construct()
     {
         $this->token = GenericEntity::generateNewToken();
+        $this->permissions = new ArrayCollection();
+    }
+
+    public function setPermissions($permissions){
+        $this->permissions = $permissions;
+        foreach($permissions as $p){
+            $p->setSubmodule($this);
+        }
     }
 
     /**
@@ -40,6 +49,13 @@ class SecuritySubmodule extends GenericEntity
     /**
      * @var string
      *
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $code;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(type="string", length=255)
      */
     protected $name;
@@ -57,6 +73,14 @@ class SecuritySubmodule extends GenericEntity
      * @ORM\Column(type="smallint",options={"default" = 1})
      */
     protected $active = true;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="Vallas\ModelBundle\Entity\SecuritySubmodulePermission", mappedBy="submodule", cascade={"persist", "remove"})
+     */
+    protected $permissions;
+
 
     public function __toString() {
         return $this->getName();
@@ -190,5 +214,63 @@ class SecuritySubmodule extends GenericEntity
     public function getActive()
     {
         return $this->active;
+    }
+
+    /**
+     * Add permission
+     *
+     * @param \Vallas\ModelBundle\Entity\SecuritySubmodulePermission $permission
+     *
+     * @return SecuritySubmodule
+     */
+    public function addPermission(\Vallas\ModelBundle\Entity\SecuritySubmodulePermission $permission)
+    {
+        $this->permissions[] = $permission;
+
+        return $this;
+    }
+
+    /**
+     * Remove permission
+     *
+     * @param \Vallas\ModelBundle\Entity\SecuritySubmodulePermission $permission
+     */
+    public function removePermission(\Vallas\ModelBundle\Entity\SecuritySubmodulePermission $permission)
+    {
+        $this->permissions->removeElement($permission);
+    }
+
+    /**
+     * Get permissions
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPermissions()
+    {
+        return $this->permissions;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return SecuritySubmodule
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
     }
 }

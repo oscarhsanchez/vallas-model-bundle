@@ -1,9 +1,10 @@
 Vallas\ModelBundle\Entity\SecuritySubmodule:
     submodule_{1..10}:
-        token: <sha1()>
-        name: <word()>
-        created_at: <dateTimeThisYear('now')>
-        updated_at: <dateTimeThisYear('now')>
+      token: <sha1()>
+      code: submodule_<current()>
+      name: <word()>
+      created_at: <dateTimeThisYear('now')>
+      updated_at: <dateTimeThisYear('now')>
 
 Vallas\ModelBundle\Entity\Role:
     role_1:
@@ -159,9 +160,9 @@ Vallas\ModelBundle\Entity\Report:
     subcategory: @subcategory_<numberBetween(1, 10)>
 
 Vallas\ModelBundle\Entity\SecuritySubmodulePermission:
-  role_permission_{1..30}:
-    role: @role_<numberBetween(1, 14)>
-    submodule: @submodule_<numberBetween(1, 10)>
+  role_permission_1:
+    role: @role_3
+    submodule: @submodule_4
     permissions: C,R,U
     token: <sha1()>
     createdAt: <dateTimeThisYear('now')>

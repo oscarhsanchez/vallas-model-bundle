@@ -21,6 +21,13 @@ class Role extends ESocialBaseRole
         $this->permissions = new ArrayCollection();
     }
 
+    public function setPermissions($permissions){
+        $this->permissions = $permissions;
+        foreach($permissions as $p){
+            $p->setRole($this);
+        }
+    }
+
     /**
      * @var integer
      *
