@@ -151,6 +151,14 @@ Vallas\ModelBundle\Entity\ReportSubcategory:
     updated_at: <dateTimeThisYear('now')>
 
 Vallas\ModelBundle\Entity\Report:
+  report_listadopedidostpweb:
+    route: /reports/informesweb/pedidos
+    jasper_report_id: listadopedidostpweb
+    token: <sha1()>
+    name: Listado de Pedidos por Tipo de Pedido
+    createdAt: <dateTimeThisYear('now')>
+    updatedAt: <dateTimeThisYear('now')>
+    subcategory: @subcategory_<numberBetween(1, 10)>
   report_{1..20}:
     route: /reports
     token: <sha1()>

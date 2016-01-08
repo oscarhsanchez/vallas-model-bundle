@@ -48,14 +48,6 @@ class ReportCategory extends GenericEntity
     protected $token;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="status", type="string", length=45, nullable=true)
-     */
-    protected $status;
-
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
@@ -139,30 +131,6 @@ class ReportCategory extends GenericEntity
     public function getToken()
     {
         return $this->token;
-    }
-
-    /**
-     * Set status
-     *
-     * @param string $status
-     *
-     * @return ReportCategory
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
     }
 
     /**

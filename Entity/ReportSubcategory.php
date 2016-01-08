@@ -10,7 +10,7 @@ use ESocial\ModelBundle\Entity\GenericEntity;
  * ReportSubcategory
  *
  * @ORM\Table(name="report_subcategory")
- * @ORM\Entity(repositoryClass="Vallas\ModelBundle\Repository\ReportCategoryRepository")
+ * @ORM\Entity(repositoryClass="Vallas\ModelBundle\Repository\ReportSubcategoryRepository")
  * @ORM\HasLifecycleCallbacks()
  */
 class ReportSubcategory extends GenericEntity
@@ -54,13 +54,6 @@ class ReportSubcategory extends GenericEntity
      * @ORM\Column(name="token", type="string", length=128, nullable=true)
      */
     protected $token;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="status", type="string", length=45, nullable=true)
-     */
-    protected $status;
 
     /**
      * @var \DateTime
@@ -154,30 +147,6 @@ class ReportSubcategory extends GenericEntity
     public function getToken()
     {
         return $this->token;
-    }
-
-    /**
-     * Set status
-     *
-     * @param string $status
-     *
-     * @return ReportSubcategory
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
     }
 
     /**
