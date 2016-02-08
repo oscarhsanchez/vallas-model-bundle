@@ -13,6 +13,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Pais extends GenericEntity
 {
+    public function __toString() {
+        return $this->getNombre();
+    }
+
     public function __construct()
     {
         $this->token = GenericEntity::generateNewToken();
