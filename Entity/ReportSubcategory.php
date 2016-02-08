@@ -36,6 +36,13 @@ class ReportSubcategory extends GenericEntity
     protected $id;
 
     /**
+     * @var Pais
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Pais")
+     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais")
+     */
+    protected $pais;
+
+    /**
      * @var string
      * @ORM\Column(type="string", length=255)
      */
@@ -239,5 +246,29 @@ class ReportSubcategory extends GenericEntity
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set pais
+     *
+     * @param \Vallas\ModelBundle\Entity\Pais $pais
+     *
+     * @return ReportSubcategory
+     */
+    public function setPais(\Vallas\ModelBundle\Entity\Pais $pais = null)
+    {
+        $this->pais = $pais;
+
+        return $this;
+    }
+
+    /**
+     * Get pais
+     *
+     * @return \Vallas\ModelBundle\Entity\Pais
+     */
+    public function getPais()
+    {
+        return $this->pais;
     }
 }

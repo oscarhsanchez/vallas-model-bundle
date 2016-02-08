@@ -19,10 +19,18 @@ class User extends ESocialBaseUser
     {
         parent::__construct();
         $this->permissions = new ArrayCollection();
+        $this->user_paises = new ArrayCollection();
     }
 
     public function setPermissions($permissions){
         $this->permissions = $permissions;
+    }
+
+    public function setUserPaises(\Doctrine\Common\Collections\Collection $user_paises){
+        $this->user_paises = $user_paises;
+        foreach ($user_paises as $c) {
+            $c->setUser($this);
+        }
     }
 
     public function getRoles(){
@@ -58,6 +66,11 @@ class User extends ESocialBaseUser
      * @ORM\OneToMany(targetEntity="Vallas\ModelBundle\Entity\SecuritySubmodulePermission", mappedBy="user", cascade={"persist", "remove"})
      */
     protected $permissions;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Vallas\ModelBundle\Entity\UserPais", mappedBy="user", cascade={"persist", "remove"})
+     */
+    protected $user_paises;
 
 
     /**
@@ -102,5 +115,40 @@ class User extends ESocialBaseUser
     public function getPermissions()
     {
         return $this->permissions;
+    }
+
+
+    /**
+     * Add userPaise
+     *
+     * @param \Vallas\ModelBundle\Entity\Pais $userPaise
+     *
+     * @return User
+     */
+    public function addUserPaise(\Vallas\ModelBundle\Entity\Pais $userPaise)
+    {
+        $this->user_paises[] = $userPaise;
+
+        return $this;
+    }
+
+    /**
+     * Remove userPaise
+     *
+     * @param \Vallas\ModelBundle\Entity\Pais $userPaise
+     */
+    public function removeUserPaise(\Vallas\ModelBundle\Entity\Pais $userPaise)
+    {
+        $this->user_paises->removeElement($userPaise);
+    }
+
+    /**
+     * Get userPaises
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUserPaises()
+    {
+        return $this->user_paises;
     }
 }

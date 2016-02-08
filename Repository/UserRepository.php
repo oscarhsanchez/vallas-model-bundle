@@ -11,4 +11,9 @@ use ESocial\ModelBundle\Entity\UserRepository as ESocialUserRepository;
  */
 class UserRepository extends ESocialUserRepository
 {
+    public function getQueryBuilder(){
+        $qb = parent::getQueryBuilder();
+        $qb->leftJoin('u.user_paises', 'user_paises');
+        return $qb;
+    }
 }

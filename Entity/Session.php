@@ -277,4 +277,90 @@ class Session extends GenericEntity
     {
         return $this->pais;
     }
+
+    /**
+     * Set ip
+     *
+     * @param string $ip
+     *
+     * @return Session
+     */
+    public function setIp($ip)
+    {
+        $this->ip = $ip;
+
+        return $this;
+    }
+
+    /**
+     * Set phoneId
+     *
+     * @param string $phoneId
+     *
+     * @return Session
+     */
+    public function setPhoneId($phoneId)
+    {
+        $this->phone_id = $phoneId;
+
+        return $this;
+    }
+
+    /**
+     * Get phoneId
+     *
+     * @return string
+     */
+    public function getPhoneId()
+    {
+        return $this->phone_id;
+    }
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     *
+     * @return Session
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * Get roles
+     *
+     * @return array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * Set expiresAt
+     *
+     * @param \DateTime $expiresAt
+     *
+     * @return Session
+     */
+    public function setExpiresAt($expiresAt)
+    {
+        $this->expires_at = $expiresAt;
+
+        return $this;
+    }
+
+    /**
+     * Get expiresAt
+     *
+     * @return \DateTime
+     */
+    public function getExpiresAt()
+    {
+        return $this->expires_at;
+    }
 }

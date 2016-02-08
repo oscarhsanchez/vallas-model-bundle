@@ -1,8 +1,8 @@
 Vallas\ModelBundle\Entity\Pais:
-    country_{1..3}:
+    country{1..10}:
       token: <sha1()>
-      pk_pais(unique): c<current()>
-      nombre: Country <current()>
+      pk_pais: c<current()>
+      nombre: <en_US:country()>
       created_at: <dateTimeThisYear('now')>
       updated_at: <dateTimeThisYear('now')>
 
@@ -181,3 +181,8 @@ Vallas\ModelBundle\Entity\SecuritySubmodulePermission:
     token: <sha1()>
     createdAt: <dateTimeThisYear('now')>
     updatedAt: <dateTimeThisYear('now')>
+
+Vallas\ModelBundle\Entity\UserPais:
+  user_pais_{1..10}:
+    user: @user<current()>
+    pais: @country*

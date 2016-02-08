@@ -68,6 +68,13 @@ class SecuritySubmodulePermission extends GenericEntity
      */
     protected $user;
 
+    /**
+     * @var Pais
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Pais")
+     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais")
+     */
+    protected $pais;
+
     /** @ORM\Column(type="datetime", nullable = true) */
     protected $created_at;
 
@@ -283,5 +290,29 @@ class SecuritySubmodulePermission extends GenericEntity
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set pais
+     *
+     * @param \Vallas\ModelBundle\Entity\Pais $pais
+     *
+     * @return SecuritySubmodulePermission
+     */
+    public function setPais(\Vallas\ModelBundle\Entity\Pais $pais = null)
+    {
+        $this->pais = $pais;
+
+        return $this;
+    }
+
+    /**
+     * Get pais
+     *
+     * @return \Vallas\ModelBundle\Entity\Pais
+     */
+    public function getPais()
+    {
+        return $this->pais;
     }
 }
