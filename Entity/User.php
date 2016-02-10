@@ -74,6 +74,14 @@ class User extends ESocialBaseUser
 
 
     /**
+     * @var float
+     *
+     * @ORM\Column(type="float")
+     */
+    protected $porcentaje_comision;
+
+
+    /**
      * Get id
      *
      * @return integer
