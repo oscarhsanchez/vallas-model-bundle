@@ -61,6 +61,21 @@ class User extends ESocialBaseUser
     protected $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=20, nullable = true, unique=true)
+     */
+    protected $codigo;
+
+    /**
+     * @var Plaza
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Plaza")
+     * @ORM\JoinColumn(name="fk_plaza", referencedColumnName="pk_plaza")
+     */
+    protected $plaza;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Vallas\ModelBundle\Entity\SecuritySubmodulePermission", mappedBy="user", cascade={"persist", "remove"})
