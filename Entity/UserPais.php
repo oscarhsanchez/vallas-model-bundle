@@ -24,7 +24,7 @@ class UserPais extends GenericEntity
      * @var Pais
      * @ORM\Id
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Pais")
-     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais")
+     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais", nullable=false)
      */
     protected $pais;
 

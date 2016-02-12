@@ -93,7 +93,7 @@ class User extends ESocialBaseUser
      *
      * @ORM\Column(type="float")
      */
-    protected $porcentaje_comision;
+    protected $porcentaje_comision = 0;
 
 
     /**
@@ -215,11 +215,11 @@ class User extends ESocialBaseUser
     /**
      * Add userPaise
      *
-     * @param \Vallas\ModelBundle\Entity\Pais $userPaise
+     * @param \Vallas\ModelBundle\Entity\UserPais $userPaise
      *
      * @return User
      */
-    public function addUserPaise(\Vallas\ModelBundle\Entity\Pais $userPaise)
+    public function addUserPaise(\Vallas\ModelBundle\Entity\UserPais $userPaise)
     {
         $this->user_paises[] = $userPaise;
 
@@ -229,9 +229,9 @@ class User extends ESocialBaseUser
     /**
      * Remove userPaise
      *
-     * @param \Vallas\ModelBundle\Entity\Pais $userPaise
+     * @param \Vallas\ModelBundle\Entity\UserPais $userPaise
      */
-    public function removeUserPaise(\Vallas\ModelBundle\Entity\Pais $userPaise)
+    public function removeUserPaise(\Vallas\ModelBundle\Entity\UserPais $userPaise)
     {
         $this->user_paises->removeElement($userPaise);
     }
