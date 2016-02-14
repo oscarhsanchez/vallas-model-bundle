@@ -64,7 +64,7 @@ class Cliente extends GenericEntity
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\User")
-     * @ORM\JoinColumn(name="codigo_user", referencedColumnName="codigo")
+     * @ORM\JoinColumn(name="codigo_user", referencedColumnName="codigo", nullable=true)
      */
     public $user;
 
