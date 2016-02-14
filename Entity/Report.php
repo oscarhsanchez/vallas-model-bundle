@@ -41,7 +41,7 @@ class Report extends GenericEntity
      * @var Pais
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Pais")
-     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais")
+     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais", nullable=false)
      */
     protected $pais;
 

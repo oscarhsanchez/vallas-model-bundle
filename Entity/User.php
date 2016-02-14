@@ -93,7 +93,7 @@ class User extends ESocialBaseUser
      *
      * @ORM\Column(type="float")
      */
-    protected $porcentaje_comision;
+    protected $porcentaje_comision = 0;
 
 
     /**
@@ -139,16 +139,87 @@ class User extends ESocialBaseUser
     {
         return $this->permissions;
     }
+    
+    /**
+     * Set codigo
+     *
+     * @param string $codigo
+     *
+     * @return User
+     */
+    public function setCodigo($codigo)
+    {
+        $this->codigo = $codigo;
 
+        return $this;
+    }
+
+    /**
+     * Get codigo
+     *
+     * @return string
+     */
+    public function getCodigo()
+    {
+        return $this->codigo;
+    }
+
+    /**
+     * Set porcentajeComision
+     *
+     * @param float $porcentajeComision
+     *
+     * @return User
+     */
+    public function setPorcentajeComision($porcentajeComision)
+    {
+        $this->porcentaje_comision = $porcentajeComision;
+
+        return $this;
+    }
+
+    /**
+     * Get porcentajeComision
+     *
+     * @return float
+     */
+    public function getPorcentajeComision()
+    {
+        return $this->porcentaje_comision;
+    }
+
+    /**
+     * Set plaza
+     *
+     * @param \Vallas\ModelBundle\Entity\Plaza $plaza
+     *
+     * @return User
+     */
+    public function setPlaza(\Vallas\ModelBundle\Entity\Plaza $plaza = null)
+    {
+        $this->plaza = $plaza;
+
+        return $this;
+    }
+
+    /**
+     * Get plaza
+     *
+     * @return \Vallas\ModelBundle\Entity\Plaza
+     */
+    public function getPlaza()
+    {
+        return $this->plaza;
+    }
 
     /**
      * Add userPaise
      *
-     * @param \Vallas\ModelBundle\Entity\Pais $userPaise
+     * @param \Vallas\ModelBundle\Entity\UserPais $userPaise
      *
      * @return User
      */
-    public function addUserPaise(\Vallas\ModelBundle\Entity\Pais $userPaise)
+    public function addUserPaise(\Vallas\ModelBundle\Entity\UserPais $userPaise)
     {
         $this->user_paises[] = $userPaise;
 
@@ -158,9 +229,9 @@ class User extends ESocialBaseUser
     /**
      * Remove userPaise
      *
-     * @param \Vallas\ModelBundle\Entity\Pais $userPaise
+     * @param \Vallas\ModelBundle\Entity\UserPais $userPaise
      */
-    public function removeUserPaise(\Vallas\ModelBundle\Entity\Pais $userPaise)
+    public function removeUserPaise(\Vallas\ModelBundle\Entity\UserPais $userPaise)
     {
         $this->user_paises->removeElement($userPaise);
     }

@@ -40,7 +40,7 @@ class Ubicacion extends GenericEntity
      * @var Pais
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Pais")
-     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais")
+     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais", nullable=false)
      */
     protected $pais;
 
@@ -154,4 +154,508 @@ class Ubicacion extends GenericEntity
      */
     protected $estado = true;
 
+
+    /**
+     * Set pkUbicacion
+     *
+     * @param string $pkUbicacion
+     *
+     * @return Ubicacion
+     */
+    public function setPkUbicacion($pkUbicacion)
+    {
+        $this->pk_ubicacion = $pkUbicacion;
+
+        return $this;
+    }
+
+    /**
+     * Get pkUbicacion
+     *
+     * @return string
+     */
+    public function getPkUbicacion()
+    {
+        return $this->pk_ubicacion;
+    }
+
+    /**
+     * Set unidadNegocio
+     *
+     * @param string $unidadNegocio
+     *
+     * @return Ubicacion
+     */
+    public function setUnidadNegocio($unidadNegocio)
+    {
+        $this->unidad_negocio = $unidadNegocio;
+
+        return $this;
+    }
+
+    /**
+     * Get unidadNegocio
+     *
+     * @return string
+     */
+    public function getUnidadNegocio()
+    {
+        return $this->unidad_negocio;
+    }
+
+    /**
+     * Set tipoMedio
+     *
+     * @param string $tipoMedio
+     *
+     * @return Ubicacion
+     */
+    public function setTipoMedio($tipoMedio)
+    {
+        $this->tipo_medio = $tipoMedio;
+
+        return $this;
+    }
+
+    /**
+     * Get tipoMedio
+     *
+     * @return string
+     */
+    public function getTipoMedio()
+    {
+        return $this->tipo_medio;
+    }
+
+    /**
+     * Set estatus
+     *
+     * @param string $estatus
+     *
+     * @return Ubicacion
+     */
+    public function setEstatus($estatus)
+    {
+        $this->estatus = $estatus;
+
+        return $this;
+    }
+
+    /**
+     * Get estatus
+     *
+     * @return string
+     */
+    public function getEstatus()
+    {
+        return $this->estatus;
+    }
+
+    /**
+     * Set ubicacion
+     *
+     * @param string $ubicacion
+     *
+     * @return Ubicacion
+     */
+    public function setUbicacion($ubicacion)
+    {
+        $this->ubicacion = $ubicacion;
+
+        return $this;
+    }
+
+    /**
+     * Get ubicacion
+     *
+     * @return string
+     */
+    public function getUbicacion()
+    {
+        return $this->ubicacion;
+    }
+
+    /**
+     * Set direccionComercial
+     *
+     * @param string $direccionComercial
+     *
+     * @return Ubicacion
+     */
+    public function setDireccionComercial($direccionComercial)
+    {
+        $this->direccion_comercial = $direccionComercial;
+
+        return $this;
+    }
+
+    /**
+     * Get direccionComercial
+     *
+     * @return string
+     */
+    public function getDireccionComercial()
+    {
+        return $this->direccion_comercial;
+    }
+
+    /**
+     * Set referencia
+     *
+     * @param string $referencia
+     *
+     * @return Ubicacion
+     */
+    public function setReferencia($referencia)
+    {
+        $this->referencia = $referencia;
+
+        return $this;
+    }
+
+    /**
+     * Get referencia
+     *
+     * @return string
+     */
+    public function getReferencia()
+    {
+        return $this->referencia;
+    }
+
+    /**
+     * Set categoria
+     *
+     * @param string $categoria
+     *
+     * @return Ubicacion
+     */
+    public function setCategoria($categoria)
+    {
+        $this->categoria = $categoria;
+
+        return $this;
+    }
+
+    /**
+     * Get categoria
+     *
+     * @return string
+     */
+    public function getCategoria()
+    {
+        return $this->categoria;
+    }
+
+    /**
+     * Set catorcena
+     *
+     * @param integer $catorcena
+     *
+     * @return Ubicacion
+     */
+    public function setCatorcena($catorcena)
+    {
+        $this->catorcena = $catorcena;
+
+        return $this;
+    }
+
+    /**
+     * Get catorcena
+     *
+     * @return integer
+     */
+    public function getCatorcena()
+    {
+        return $this->catorcena;
+    }
+
+    /**
+     * Set anio
+     *
+     * @param integer $anio
+     *
+     * @return Ubicacion
+     */
+    public function setAnio($anio)
+    {
+        $this->anio = $anio;
+
+        return $this;
+    }
+
+    /**
+     * Get anio
+     *
+     * @return integer
+     */
+    public function getAnio()
+    {
+        return $this->anio;
+    }
+
+    /**
+     * Set fechaInstalacion
+     *
+     * @param \DateTime $fechaInstalacion
+     *
+     * @return Ubicacion
+     */
+    public function setFechaInstalacion($fechaInstalacion)
+    {
+        $this->fecha_instalacion = $fechaInstalacion;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaInstalacion
+     *
+     * @return \DateTime
+     */
+    public function getFechaInstalacion()
+    {
+        return $this->fecha_instalacion;
+    }
+
+    /**
+     * Set observaciones
+     *
+     * @param string $observaciones
+     *
+     * @return Ubicacion
+     */
+    public function setObservaciones($observaciones)
+    {
+        $this->observaciones = $observaciones;
+
+        return $this;
+    }
+
+    /**
+     * Get observaciones
+     *
+     * @return string
+     */
+    public function getObservaciones()
+    {
+        return $this->observaciones;
+    }
+
+    /**
+     * Set latitud
+     *
+     * @param float $latitud
+     *
+     * @return Ubicacion
+     */
+    public function setLatitud($latitud)
+    {
+        $this->latitud = $latitud;
+
+        return $this;
+    }
+
+    /**
+     * Get latitud
+     *
+     * @return float
+     */
+    public function getLatitud()
+    {
+        return $this->latitud;
+    }
+
+    /**
+     * Set longitud
+     *
+     * @param float $longitud
+     *
+     * @return Ubicacion
+     */
+    public function setLongitud($longitud)
+    {
+        $this->longitud = $longitud;
+
+        return $this;
+    }
+
+    /**
+     * Get longitud
+     *
+     * @return float
+     */
+    public function getLongitud()
+    {
+        return $this->longitud;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return Ubicacion
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Ubicacion
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set token
+     *
+     * @param string $token
+     *
+     * @return Ubicacion
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * Get token
+     *
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param integer $estado
+     *
+     * @return Ubicacion
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return integer
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * Set pais
+     *
+     * @param \Vallas\ModelBundle\Entity\Pais $pais
+     *
+     * @return Ubicacion
+     */
+    public function setPais(\Vallas\ModelBundle\Entity\Pais $pais)
+    {
+        $this->pais = $pais;
+
+        return $this;
+    }
+
+    /**
+     * Get pais
+     *
+     * @return \Vallas\ModelBundle\Entity\Pais
+     */
+    public function getPais()
+    {
+        return $this->pais;
+    }
+
+    /**
+     * Set empresa
+     *
+     * @param \Vallas\ModelBundle\Entity\Empresa $empresa
+     *
+     * @return Ubicacion
+     */
+    public function setEmpresa(\Vallas\ModelBundle\Entity\Empresa $empresa = null)
+    {
+        $this->empresa = $empresa;
+
+        return $this;
+    }
+
+    /**
+     * Get empresa
+     *
+     * @return \Vallas\ModelBundle\Entity\Empresa
+     */
+    public function getEmpresa()
+    {
+        return $this->empresa;
+    }
+
+    /**
+     * Set plaza
+     *
+     * @param \Vallas\ModelBundle\Entity\Plaza $plaza
+     *
+     * @return Ubicacion
+     */
+    public function setPlaza(\Vallas\ModelBundle\Entity\Plaza $plaza = null)
+    {
+        $this->plaza = $plaza;
+
+        return $this;
+    }
+
+    /**
+     * Get plaza
+     *
+     * @return \Vallas\ModelBundle\Entity\Plaza
+     */
+    public function getPlaza()
+    {
+        return $this->plaza;
+    }
 }

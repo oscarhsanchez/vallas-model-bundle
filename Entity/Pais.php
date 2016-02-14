@@ -2,6 +2,7 @@
 
 namespace Vallas\ModelBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use ESocial\ModelBundle\Entity\GenericEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -20,6 +21,14 @@ class Pais extends GenericEntity
     public function __construct()
     {
         $this->token = GenericEntity::generateNewToken();
+        $this->user_paises = new ArrayCollection();
+    }
+
+    public function setUserPaises(\Doctrine\Common\Collections\Collection $user_paises){
+        $this->user_paises = $user_paises;
+        foreach ($user_paises as $c) {
+            $c->setPais($this);
+        }
     }
 
     /**
@@ -47,6 +56,10 @@ class Pais extends GenericEntity
      */
     protected $nombre;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Vallas\ModelBundle\Entity\UserPais", mappedBy="pais", cascade={"persist", "remove"})
+     */
+    protected $user_paises;
 
     /**
      * @ORM\Column(type="smallint",options={"default" = 1})
@@ -209,4 +222,38 @@ class Pais extends GenericEntity
 
 
 
+
+    /**
+     * Add userPaise
+     *
+     * @param \Vallas\ModelBundle\Entity\UserPais $userPaise
+     *
+     * @return Pais
+     */
+    public function addUserPaise(\Vallas\ModelBundle\Entity\UserPais $userPaise)
+    {
+        $this->user_paises[] = $userPaise;
+
+        return $this;
+    }
+
+    /**
+     * Remove userPaise
+     *
+     * @param \Vallas\ModelBundle\Entity\UserPais $userPaise
+     */
+    public function removeUserPaise(\Vallas\ModelBundle\Entity\UserPais $userPaise)
+    {
+        $this->user_paises->removeElement($userPaise);
+    }
+
+    /**
+     * Get userPaises
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUserPaises()
+    {
+        return $this->user_paises;
+    }
 }
