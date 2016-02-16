@@ -62,7 +62,7 @@ class Agencia extends GenericEntity
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=100, nullable = false, unique=false)
+     * @ORM\Column(type="string", length=100, nullable = true, unique=false)
      */
     protected $nombre_comercial;
 

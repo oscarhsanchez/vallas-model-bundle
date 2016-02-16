@@ -46,12 +46,12 @@ class Gasto extends GenericEntity
     protected $pais;
 
     /**
-     * @var Medio
+     * @var Ubicacion
      *
-     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Medio")
-     * @ORM\JoinColumn(name="fk_medio", referencedColumnName="pk_medio")
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Ubicacion")
+     * @ORM\JoinColumn(name="fk_ubicacion", referencedColumnName="pk_ubicacion")
      */
-    protected $medio;
+    protected $ubicacion;
 
     /** @ORM\Column(type="string", length=14, nullable = false, unique=false) */
     protected $unidad_negocio;

@@ -7,11 +7,11 @@ use ESocial\ModelBundle\Entity\GenericEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="Vallas\ModelBundle\Repository\MetadataInstanceRepository")
- * @ORM\Table(name="metadata_instance")
+ * @ORM\Entity(repositoryClass="Vallas\ModelBundle\Repository\ParametroTpvRepository")
+ * @ORM\Table(name="parametros_tpv")
  * @ORM\HasLifecycleCallbacks
  */
-class MetadataInstance extends GenericEntity
+class ParametroTpv extends GenericEntity
 {
     public function __construct()
     {
@@ -35,23 +35,24 @@ class MetadataInstance extends GenericEntity
     * @ORM\Column(type="integer")
     * @ORM\GeneratedValue
     */
-    protected  $pk_metadata_instance;
+    public $id;
 
     /**
      * @var Pais
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Pais")
-     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais")
+     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais", nullable=false)
      */
-    protected $pais;
+    public $fk_pais;
 
-    /**
-     * @var MetadataRepository
-     *
-     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\MetadataRepository")
-     * @ORM\JoinColumn(name="fk_metadata_repository", referencedColumnName="pk_metadata_repository")
-     */
-    public $metadata_repository;
+    /** @ORM\Column(type="string", length=200, unique=false) */
+    public $descripcion;
+
+    /** @ORM\Column(type="string", length=20, unique=false) */
+    public $clave;
+
+    /** @ORM\Column(type="string", length=100, unique=false) */
+    public $valor;
 
     /** @ORM\Column(type="datetime", nullable = true) */
     protected $created_at;

@@ -32,7 +32,7 @@ class Ubicacion extends GenericEntity
 
     /**
      * @ORM\Id
-     * @ORM\Column(type="string", length=6)
+     * @ORM\Column(type="string", length=20)
      */
     protected $pk_ubicacion;
 
