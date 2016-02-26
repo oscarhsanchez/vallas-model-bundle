@@ -7,11 +7,11 @@ use ESocial\ModelBundle\Entity\GenericEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="Vallas\ModelBundle\Repository\MaterialImpresionRepository")
- * @ORM\Table(name="materiales_impresion")
+ * @ORM\Entity(repositoryClass="Vallas\ModelBundle\Repository\ArchivoRepository")
+ * @ORM\Table(name="archivos")
  * @ORM\HasLifecycleCallbacks
  */
-class MaterialImpresion extends GenericEntity
+class Archivo extends GenericEntity
 {
     public function __construct()
     {
@@ -35,30 +35,36 @@ class MaterialImpresion extends GenericEntity
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      */
-    protected $pk_material;
+    protected $pk_archivo;
+
+    /**
+     * @var Pais
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Pais")
+     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais", nullable=false)
+     */
+    protected $pais;
 
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=45, nullable = false, unique=false)
+     * @ORM\Column(type="string", length=100, nullable = false, unique=false)
      */
-    protected $material_nombre;
-
-
-    /**
-     * @var SubtipoMedio
-     *
-     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\SubtipoMedio")
-     * @ORM\JoinColumn(name="fk_subtipo", referencedColumnName="pk_subtipo")
-     */
-    protected $subtipoMedio;
+    protected $nombre;
 
     /**
-     * @var float
+     * @var string
      *
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="string", length=250, nullable = false, unique=false)
      */
-    protected $precio;
+    protected $path;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=250, nullable = false, unique=false)
+     */
+    protected $url;
 
     /** @ORM\Column(type="datetime", nullable = true) */
     protected $created_at;
@@ -73,4 +79,5 @@ class MaterialImpresion extends GenericEntity
      * @ORM\Column(type="smallint",options={"default" = 1})
      */
     protected $estado = true;
+
 }

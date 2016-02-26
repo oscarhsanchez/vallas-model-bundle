@@ -32,8 +32,7 @@ class Cliente extends GenericEntity
 
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue
+     * @ORM\Column(type="string", length=20, nullable=false)
      */
     public $pk_cliente;
 

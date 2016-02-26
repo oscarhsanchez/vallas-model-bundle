@@ -45,6 +45,14 @@ class MetaUbicacionFQ extends GenericEntity
     protected $pais;
 
     /**
+     * @var Ubicacion
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Ubicacion")
+     * @ORM\JoinColumn(name="fk_ubicacion", referencedColumnName="pk_ubicacion")
+     */
+    protected $ubicacion;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="string", length=200, nullable = false, unique=false)
@@ -54,8 +62,8 @@ class MetaUbicacionFQ extends GenericEntity
     /**
      * @var MetaUbicacionFQ
      *
-     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\MetaUbicacionFQ")
-     * @ORM\JoinColumn(name="fk_category", referencedColumnName="id", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\MetaUbicacionFQCat")
+     * @ORM\JoinColumn(name="fk_category", referencedColumnName="id", nullable=true)
      */
     protected $category;
 

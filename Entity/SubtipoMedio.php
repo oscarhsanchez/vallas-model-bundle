@@ -7,11 +7,11 @@ use ESocial\ModelBundle\Entity\GenericEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="Vallas\ModelBundle\Repository\SubtipoRepository")
- * @ORM\Table(name="subtipos")
+ * @ORM\Entity(repositoryClass="Vallas\ModelBundle\Repository\SubtipoMedioRepository")
+ * @ORM\Table(name="subtipos_medios")
  * @ORM\HasLifecycleCallbacks
  */
-class Subtipo extends GenericEntity
+class SubtipoMedio extends GenericEntity
 {
     public function __construct()
     {
@@ -35,6 +35,38 @@ class Subtipo extends GenericEntity
      * @ORM\Column(type="string", length=6)
      */
     protected  $pk_subtipo;
+
+    /**
+     * @var Pais
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Pais")
+     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais", nullable=false)
+     */
+    protected $pais;
+
+    /**
+     * @var TipoMedio
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\TipoMedio")
+     * @ORM\JoinColumn(name="fk_tipo", referencedColumnName="pk_tipo", nullable=true)
+     */
+    protected $tipoMedio;
+
+    /**
+     * @var Empresa
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Empresa")
+     * @ORM\JoinColumn(name="fk_empresa", referencedColumnName="pk_empresa")
+     */
+    protected $empresa;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=14, nullable = true, unique=false)
+     */
+    protected $unidad_negocio;
+
 
     /**
      * @var string
@@ -63,7 +95,7 @@ class Subtipo extends GenericEntity
      *
      * @param string $pkSubtipo
      *
-     * @return Subtipo
+     * @return SubtipoMedio
      */
     public function setPkSubtipo($pkSubtipo)
     {
@@ -87,7 +119,7 @@ class Subtipo extends GenericEntity
      *
      * @param string $descripcion
      *
-     * @return Subtipo
+     * @return SubtipoMedio
      */
     public function setDescripcion($descripcion)
     {
@@ -111,7 +143,7 @@ class Subtipo extends GenericEntity
      *
      * @param \DateTime $createdAt
      *
-     * @return Subtipo
+     * @return SubtipoMedio
      */
     public function setCreatedAt($createdAt)
     {
@@ -135,7 +167,7 @@ class Subtipo extends GenericEntity
      *
      * @param \DateTime $updatedAt
      *
-     * @return Subtipo
+     * @return SubtipoMedio
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -159,7 +191,7 @@ class Subtipo extends GenericEntity
      *
      * @param string $token
      *
-     * @return Subtipo
+     * @return SubtipoMedio
      */
     public function setToken($token)
     {
@@ -183,7 +215,7 @@ class Subtipo extends GenericEntity
      *
      * @param integer $estado
      *
-     * @return Subtipo
+     * @return SubtipoMedio
      */
     public function setEstado($estado)
     {

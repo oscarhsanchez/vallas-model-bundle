@@ -31,9 +31,10 @@ class Brief extends GenericEntity
     }
 
     /**
-     * @ORM\Id
-     * @ORM\Column(type="string", length=6)
-     */
+    * @ORM\Id
+    * @ORM\Column(type="integer")
+    * @ORM\GeneratedValue
+    */
     protected  $pk_brief;
 
     /**

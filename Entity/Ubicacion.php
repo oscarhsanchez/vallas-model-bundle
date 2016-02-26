@@ -139,6 +139,11 @@ class Ubicacion extends GenericEntity
      */
     protected $longitud;
 
+    /**
+     * @ORM\Column(type="integer", options={"default":1})
+     */
+    protected $reserva=1;
+
 
     /** @ORM\Column(type="datetime", nullable = true) */
     protected $created_at;

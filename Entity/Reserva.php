@@ -7,11 +7,11 @@ use ESocial\ModelBundle\Entity\GenericEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="Vallas\ModelBundle\Repository\PropuestaDetalleRepository")
- * @ORM\Table(name="propuestas_detalle")
+ * @ORM\Entity(repositoryClass="Vallas\ModelBundle\Repository\ReservaRepository")
+ * @ORM\Table(name="reservas")
  * @ORM\HasLifecycleCallbacks
  */
-class PropuestaDetalle extends GenericEntity
+class Reserva extends GenericEntity
 {
     public function __construct()
     {
@@ -35,46 +35,23 @@ class PropuestaDetalle extends GenericEntity
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      */
-    protected  $pk_propuesta_detalle;
-
-
-    /**
-     * @var Propuesta
-     *
-     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Propuesta")
-     * @ORM\JoinColumn(name="fk_propuesta", referencedColumnName="pk_propuesta")
-     */
-    protected $propuesta;
+    protected $pk_reserva;
 
     /**
      * @var Pais
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Pais")
-     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais")
+     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais", nullable=false)
      */
     protected $pais;
 
     /**
-     * @var Plaza
+     * @var Empresa
      *
-     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Plaza")
-     * @ORM\JoinColumn(name="fk_plaza", referencedColumnName="pk_plaza")
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Empresa")
+     * @ORM\JoinColumn(name="fk_empresa", referencedColumnName="pk_empresa")
      */
-    protected $plaza;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=14, nullable = false, unique=false)
-     */
-    protected $unidad_negocio;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=30, nullable = false, unique=false)
-     */
-    protected $tipo_negociacion;
+    protected $empresa;
 
     /**
      * @var Ubicacion
@@ -85,35 +62,43 @@ class PropuestaDetalle extends GenericEntity
     protected $ubicacion;
 
     /**
+     * @var Propuesta
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Propuesta")
+     * @ORM\JoinColumn(name="fk_propuesta", referencedColumnName="pk_propuesta")
+     */
+    protected $propuesta;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(type="integer")
+     */
+    protected $posicion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(type="integer")
+     */
+    protected $catorcena;
+
+    /** @ORM\Column(type="date", nullable = true) */
+    protected $fecha_inicio;
+
+    /** @ORM\Column(type="date", nullable = true) */
+    protected $fecha_fin;
+
+    /** @ORM\Column(type="date", nullable = true) */
+    protected $fecha_reserva;
+
+    /**
      * @var string
      *
-     * @ORM\Column(type="string", length=20, nullable = false, unique=false)
+     * @ORM\Column(type="string", length=10, nullable = false, unique=false)
      */
-    protected $moneda;
+    protected $estatus;
 
-    /**
-     * @var float
-     *
-     * @ORM\Column(type="float")
-     */
-    protected $precio;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(type="float")
-     */
-    protected $tipo_cambio;
-
-    /** @ORM\Column(type="integer", nullable = false) */
-    protected $cantidad;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(type="float")
-     */
-    protected $total;
 
     /** @ORM\Column(type="datetime", nullable = true) */
     protected $created_at;
@@ -128,5 +113,6 @@ class PropuestaDetalle extends GenericEntity
      * @ORM\Column(type="smallint",options={"default" = 1})
      */
     protected $estado = true;
+
 
 }
