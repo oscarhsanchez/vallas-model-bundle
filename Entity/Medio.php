@@ -89,9 +89,21 @@ class Medio extends GenericEntity
     protected $estatus_iluminacion;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=10, nullable = true, unique=false)
+     */
+    protected $visibilidad;
+
+    /**
      * @ORM\Column(type="integer", options={"default":1})
      */
     protected $slots=1;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    protected $coste;
 
     /**
      * @var string

@@ -57,7 +57,7 @@ class Cliente extends GenericEntity
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Empresa")
      * @ORM\JoinColumn(name="fk_empresa", referencedColumnName="pk_empresa")
      */
-    public $empresa;
+    protected $empresa;
 
     /**
      * @var User
@@ -65,49 +65,103 @@ class Cliente extends GenericEntity
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\User")
      * @ORM\JoinColumn(name="codigo_user", referencedColumnName="codigo", nullable=true)
      */
-    public $user;
+    protected $user;
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=250, nullable = true, unique=false)
      */
-    public $razon_social;
+    protected $razon_social;
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=100, nullable = true, unique=false)
      */
-    public $nombre_comercial;
+    protected $nombre_comercial;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=250, nullable = true, unique=false)
+     */
+    protected $direccion;
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=100, nullable = true, unique=false)
+     */
+    protected $domicilio_calle;
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=40, nullable = true, unique=false)
+     */
+    protected $domicilio_no_exterior;
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=40, nullable = true, unique=false)
+     */
+    protected $domicilio_no_interior;
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=60, nullable = true, unique=false)
+     */
+    protected $domicilio_colonia;
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=60, nullable = true, unique=false)
+     */
+    protected $domicilio_delegacion;
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=60, nullable = true, unique=false)
+     */
+    protected $domicilio_estado;
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=30, nullable = true, unique=false)
+     */
+    protected $domicilio_pais;
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=20, nullable = true, unique=false)
+     */
+    protected $domicilio_cp;
     /**
      * @var float
      *
      * @ORM\Column(type="float")
      */
-    public $porcentaje_comision;
+    protected $porcentaje_comision;
 
     /**
      * @var integer
      *
      * @ORM\Column(type="integer")
      */
-    public $dias_credito;
+    protected $dias_credito;
 
     /**
      * @var float
      *
      * @ORM\Column(type="float")
      */
-    public $credito_maximo;
+    protected $credito_maximo;
 
     /**
      * @var string
      *
      * @ORM\Column(type="string", length=20, nullable = true, unique=false)
      */
-    public $estatus;
+    protected $estatus;
 
     /** @ORM\Column(type="datetime", nullable = true) */
     protected $created_at;

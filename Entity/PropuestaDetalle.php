@@ -32,7 +32,7 @@ class PropuestaDetalle extends GenericEntity
 
     /**
      * @ORM\Id
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string", length=100)
      * @ORM\GeneratedValue
      */
     protected  $pk_propuesta_detalle;

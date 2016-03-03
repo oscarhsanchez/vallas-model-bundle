@@ -105,6 +105,34 @@ class Ubicacion extends GenericEntity
     /**
      * @var string
      *
+     * @ORM\Column(type="string", length=20, nullable = true, unique=false)
+     */
+    protected $trafico_vehicular;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=20, nullable = true, unique=false)
+     */
+    protected $trafico_transeuntes;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=20, nullable = true, unique=false)
+     */
+    protected $nivel_socioeconomico;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=20, nullable = true, unique=false)
+     */
+    protected $lugares_cercanos;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(type="string", length=6, nullable = true, unique=false)
      */
     protected $categoria;

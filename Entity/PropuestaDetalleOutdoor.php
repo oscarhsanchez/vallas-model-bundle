@@ -47,6 +47,20 @@ class PropuestaDetalleOutdoor extends GenericEntity
     protected $propuestaDetalle;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=14, nullable = false, unique=false)
+     */
+    protected $unidad_negocio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=30, nullable = false, unique=false)
+     */
+    protected $tipo_negociacion;
+
+    /**
      * @var Medio
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Medio")
@@ -77,6 +91,11 @@ class PropuestaDetalleOutdoor extends GenericEntity
      * @ORM\Column(type="float")
      */
     protected $tipo_cambio;
+
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    protected $pautado = true;
 
     /** @ORM\Column(type="datetime", nullable = true) */
     protected $created_at;

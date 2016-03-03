@@ -74,6 +74,14 @@ class Propuesta extends GenericEntity
     protected $catorcena;
 
     /**
+     * @var Agencia
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\CategoriaPropuesta")
+     * @ORM\JoinColumn(name="fk_categoria_propuesta", referencedColumnName="pk_categoria_propuesta", nullable=true)
+     */
+    protected $categoria;
+
+    /**
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\User")
@@ -95,6 +103,7 @@ class Propuesta extends GenericEntity
      * @ORM\JoinColumn(name="fk_agencia", referencedColumnName="pk_agencia", nullable=true)
      */
     protected $agencia;
+
 
     /**
      * @var float
