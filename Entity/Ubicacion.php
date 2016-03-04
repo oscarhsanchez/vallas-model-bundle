@@ -61,6 +61,30 @@ class Ubicacion extends GenericEntity
     protected $plaza;
 
     /**
+     * @var zona_fijacion
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Zona")
+     * @ORM\JoinColumn(name="fk_zona_fijacion", referencedColumnName="pk_zona")
+     */
+    protected $zona_fijacion;
+
+    /**
+     * @var zona_iluminacion
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Zona")
+     * @ORM\JoinColumn(name="fk_zona_iluminacion", referencedColumnName="pk_zona")
+     */
+    protected $zona_iluminacion;
+
+    /**
+     * @var zona_instalacion
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Zona")
+     * @ORM\JoinColumn(name="fk_zona_instalacion", referencedColumnName="pk_zona")
+     */
+    protected $zona_instalacion;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="string", length=14, nullable = true, unique=false)
@@ -129,6 +153,8 @@ class Ubicacion extends GenericEntity
      * @ORM\Column(type="string", length=20, nullable = true, unique=false)
      */
     protected $lugares_cercanos;
+
+
 
     /**
      * @var string

@@ -112,6 +112,9 @@ class Propuesta extends GenericEntity
      */
     protected $comision_agencia;
 
+    /** @ORM\Column(type="text") */
+    protected $observaciones;
+
     /**
      * @var string
      *

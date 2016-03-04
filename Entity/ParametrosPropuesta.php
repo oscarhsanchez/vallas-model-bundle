@@ -58,6 +58,9 @@ class ParametrosPropuesta extends GenericEntity
     /** @ORM\Column(type="string", length=20) */
     protected $tipologia;
 
+    /** @ORM\Column(type="text") */
+    protected $tipologia_medios;
+
     /**
      * @ORM\Column(type="smallint")
      */

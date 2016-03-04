@@ -80,7 +80,14 @@ class Brief extends GenericEntity
      *
      * @ORM\Column(type="text", nullable = false, unique=false)
      */
-    protected $productos;
+    protected $paises_plazas;
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(type="text", nullable = false, unique=false)
+     */
+    protected $tipologia_medios;
 
     /** @ORM\Column(type="date", nullable = true) */
     protected $fecha_solicitud;
