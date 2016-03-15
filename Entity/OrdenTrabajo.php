@@ -13,6 +13,26 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class OrdenTrabajo extends GenericEntity
 {
+
+    public function __toString(){
+        $desc = '';
+
+        if ($this->getFechaLimite()){
+            $desc .= $this->getFechaLimite()->format('d/m/Y');
+        }
+
+        if ($this->getMedio() && $this->getMedio()->getUbicacion()){
+            $desc .= ' - '. $this->getMedio()->getUbicacion();
+        }
+
+        if ($this->getCodigoUser()){
+            $desc .= ' - '. $this->getCodigoUser();
+        }
+
+        return $desc;
+
+    }
+
     public function __construct()
     {
         $this->token = GenericEntity::generateNewToken();
@@ -63,44 +83,46 @@ class OrdenTrabajo extends GenericEntity
     protected $medio;
 
     /**
-     * @var User
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\User")
-     * @ORM\JoinColumn(name="codigo_user", referencedColumnName="codigo", nullable=true)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
-    protected $user;
+    protected $codigo_user;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="smallint", nullable=false)
      */
     protected $tipo;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="smallint", nullable=false)
      */
     protected $estado_orden;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="date", nullable=false)
      */
     protected $fecha_limite;
 
     /**
-     * @ORM\Column(type="datetime", nullable=false)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     protected $fecha_cierre;
 
     /**
      * @var text
      *
-     * @ORM\Column(type="text", nullable = false, unique=false)
+     * @ORM\Column(type="text", nullable=true, unique=false)
      */
     protected $observaciones;
 
     /**
      * @var text
      *
-     * @ORM\Column(type="text", nullable = false, unique=false)
+     * @ORM\Column(type="text", nullable=true, unique=false)
      */
     protected $observaciones_cierre;
 
@@ -118,4 +140,351 @@ class OrdenTrabajo extends GenericEntity
      */
     protected $estado = true;
 
+
+    /**
+     * Get pkOrdenTrabajo
+     *
+     * @return integer
+     */
+    public function getPkOrdenTrabajo()
+    {
+        return $this->pk_orden_trabajo;
+    }
+
+    /**
+     * Set tipo
+     *
+     * @param integer $tipo
+     *
+     * @return OrdenTrabajo
+     */
+    public function setTipo($tipo)
+    {
+        $this->tipo = $tipo;
+
+        return $this;
+    }
+
+    /**
+     * Get tipo
+     *
+     * @return integer
+     */
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
+
+    /**
+     * Set estadoOrden
+     *
+     * @param integer $estadoOrden
+     *
+     * @return OrdenTrabajo
+     */
+    public function setEstadoOrden($estadoOrden)
+    {
+        $this->estado_orden = $estadoOrden;
+
+        return $this;
+    }
+
+    /**
+     * Get estadoOrden
+     *
+     * @return integer
+     */
+    public function getEstadoOrden()
+    {
+        return $this->estado_orden;
+    }
+
+    /**
+     * Set fechaLimite
+     *
+     * @param \DateTime $fechaLimite
+     *
+     * @return OrdenTrabajo
+     */
+    public function setFechaLimite($fechaLimite)
+    {
+        $this->fecha_limite = $fechaLimite;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaLimite
+     *
+     * @return \DateTime
+     */
+    public function getFechaLimite()
+    {
+        return $this->fecha_limite;
+    }
+
+    /**
+     * Set fechaCierre
+     *
+     * @param \DateTime $fechaCierre
+     *
+     * @return OrdenTrabajo
+     */
+    public function setFechaCierre($fechaCierre)
+    {
+        $this->fecha_cierre = $fechaCierre;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaCierre
+     *
+     * @return \DateTime
+     */
+    public function getFechaCierre()
+    {
+        return $this->fecha_cierre;
+    }
+
+    /**
+     * Set observaciones
+     *
+     * @param string $observaciones
+     *
+     * @return OrdenTrabajo
+     */
+    public function setObservaciones($observaciones)
+    {
+        $this->observaciones = $observaciones;
+
+        return $this;
+    }
+
+    /**
+     * Get observaciones
+     *
+     * @return string
+     */
+    public function getObservaciones()
+    {
+        return $this->observaciones;
+    }
+
+    /**
+     * Set observacionesCierre
+     *
+     * @param string $observacionesCierre
+     *
+     * @return OrdenTrabajo
+     */
+    public function setObservacionesCierre($observacionesCierre)
+    {
+        $this->observaciones_cierre = $observacionesCierre;
+
+        return $this;
+    }
+
+    /**
+     * Get observacionesCierre
+     *
+     * @return string
+     */
+    public function getObservacionesCierre()
+    {
+        return $this->observaciones_cierre;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return OrdenTrabajo
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return OrdenTrabajo
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set token
+     *
+     * @param string $token
+     *
+     * @return OrdenTrabajo
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * Get token
+     *
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param integer $estado
+     *
+     * @return OrdenTrabajo
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return integer
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * Set pais
+     *
+     * @param \Vallas\ModelBundle\Entity\Pais $pais
+     *
+     * @return OrdenTrabajo
+     */
+    public function setPais(\Vallas\ModelBundle\Entity\Pais $pais)
+    {
+        $this->pais = $pais;
+
+        return $this;
+    }
+
+    /**
+     * Get pais
+     *
+     * @return \Vallas\ModelBundle\Entity\Pais
+     */
+    public function getPais()
+    {
+        return $this->pais;
+    }
+
+    /**
+     * Set propuesta
+     *
+     * @param \Vallas\ModelBundle\Entity\Propuesta $propuesta
+     *
+     * @return OrdenTrabajo
+     */
+    public function setPropuesta(\Vallas\ModelBundle\Entity\Propuesta $propuesta = null)
+    {
+        $this->propuesta = $propuesta;
+
+        return $this;
+    }
+
+    /**
+     * Get propuesta
+     *
+     * @return \Vallas\ModelBundle\Entity\Propuesta
+     */
+    public function getPropuesta()
+    {
+        return $this->propuesta;
+    }
+
+    /**
+     * Set medio
+     *
+     * @param \Vallas\ModelBundle\Entity\Medio $medio
+     *
+     * @return OrdenTrabajo
+     */
+    public function setMedio(\Vallas\ModelBundle\Entity\Medio $medio = null)
+    {
+        $this->medio = $medio;
+
+        return $this;
+    }
+
+    /**
+     * Get medio
+     *
+     * @return \Vallas\ModelBundle\Entity\Medio
+     */
+    public function getMedio()
+    {
+        return $this->medio;
+    }
+
+
+    /**
+     * Set codigoUser
+     *
+     * @param string $codigoUser
+     *
+     * @return OrdenTrabajo
+     */
+    public function setCodigoUser($codigoUser)
+    {
+        $this->codigo_user = $codigoUser;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoUser
+     *
+     * @return string
+     */
+    public function getCodigoUser()
+    {
+        return $this->codigo_user;
+    }
 }

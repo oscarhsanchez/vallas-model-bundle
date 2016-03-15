@@ -13,6 +13,34 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Propuesta extends GenericEntity
 {
+    public function __toString(){
+
+        $descr = '';
+
+        if ($this->getCliente()){
+            $descr .= 'Cliente: '.$this->getCliente()->getRazonSocial();
+        }
+
+        if ($this->getFechaInicio()){
+            $descr .= ' - Desde: '.$this->getFechaInicio()->format('d/m/Y');
+        }
+
+        if ($this->getFechaFin()){
+            $descr .= ' - Hasta: '.$this->getFechaFin()->format('d/m/Y');
+        }
+
+        if ($this->getAgencia()){
+            $descr .= ' - Agencia: '.$this->getAgencia()->getRazonSocial();
+        }
+
+        if ($this->getCodigoUser()){
+            $descr .= ' - User: '.$this->getCodigoUser();
+        }
+
+        return $descr;
+
+    }
+
     public function __construct()
     {
         $this->token = GenericEntity::generateNewToken();
@@ -82,12 +110,11 @@ class Propuesta extends GenericEntity
     protected $categoria;
 
     /**
-     * @var User
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\User")
-     * @ORM\JoinColumn(name="codigo_user", referencedColumnName="codigo", nullable=true)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
-    protected $user;
+    protected $codigo_user;
 
     /**
      * @var float

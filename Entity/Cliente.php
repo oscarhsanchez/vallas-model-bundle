@@ -13,6 +13,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Cliente extends GenericEntity
 {
+    public function __toString(){
+        return $this->getRazonSocial();
+    }
+
     public function __construct()
     {
         $this->token = GenericEntity::generateNewToken();
@@ -60,12 +64,11 @@ class Cliente extends GenericEntity
     protected $empresa;
 
     /**
-     * @var User
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\User")
-     * @ORM\JoinColumn(name="codigo_user", referencedColumnName="codigo", nullable=true)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
-    protected $user;
+    protected $codigo_user;
 
     /**
      * @var string
@@ -502,26 +505,256 @@ class Cliente extends GenericEntity
     }
 
     /**
-     * Set user
+     * Set pkCliente
      *
-     * @param \Vallas\ModelBundle\Entity\User $user
+     * @param string $pkCliente
      *
      * @return Cliente
      */
-    public function setUser(\Vallas\ModelBundle\Entity\User $user = null)
+    public function setPkCliente($pkCliente)
     {
-        $this->user = $user;
+        $this->pk_cliente = $pkCliente;
 
         return $this;
     }
 
     /**
-     * Get user
+     * Set direccion
      *
-     * @return \Vallas\ModelBundle\Entity\User
+     * @param string $direccion
+     *
+     * @return Cliente
      */
-    public function getUser()
+    public function setDireccion($direccion)
     {
-        return $this->user;
+        $this->direccion = $direccion;
+
+        return $this;
+    }
+
+    /**
+     * Get direccion
+     *
+     * @return string
+     */
+    public function getDireccion()
+    {
+        return $this->direccion;
+    }
+
+    /**
+     * Set domicilioCalle
+     *
+     * @param string $domicilioCalle
+     *
+     * @return Cliente
+     */
+    public function setDomicilioCalle($domicilioCalle)
+    {
+        $this->domicilio_calle = $domicilioCalle;
+
+        return $this;
+    }
+
+    /**
+     * Get domicilioCalle
+     *
+     * @return string
+     */
+    public function getDomicilioCalle()
+    {
+        return $this->domicilio_calle;
+    }
+
+    /**
+     * Set domicilioNoExterior
+     *
+     * @param string $domicilioNoExterior
+     *
+     * @return Cliente
+     */
+    public function setDomicilioNoExterior($domicilioNoExterior)
+    {
+        $this->domicilio_no_exterior = $domicilioNoExterior;
+
+        return $this;
+    }
+
+    /**
+     * Get domicilioNoExterior
+     *
+     * @return string
+     */
+    public function getDomicilioNoExterior()
+    {
+        return $this->domicilio_no_exterior;
+    }
+
+    /**
+     * Set domicilioNoInterior
+     *
+     * @param string $domicilioNoInterior
+     *
+     * @return Cliente
+     */
+    public function setDomicilioNoInterior($domicilioNoInterior)
+    {
+        $this->domicilio_no_interior = $domicilioNoInterior;
+
+        return $this;
+    }
+
+    /**
+     * Get domicilioNoInterior
+     *
+     * @return string
+     */
+    public function getDomicilioNoInterior()
+    {
+        return $this->domicilio_no_interior;
+    }
+
+    /**
+     * Set domicilioColonia
+     *
+     * @param string $domicilioColonia
+     *
+     * @return Cliente
+     */
+    public function setDomicilioColonia($domicilioColonia)
+    {
+        $this->domicilio_colonia = $domicilioColonia;
+
+        return $this;
+    }
+
+    /**
+     * Get domicilioColonia
+     *
+     * @return string
+     */
+    public function getDomicilioColonia()
+    {
+        return $this->domicilio_colonia;
+    }
+
+    /**
+     * Set domicilioDelegacion
+     *
+     * @param string $domicilioDelegacion
+     *
+     * @return Cliente
+     */
+    public function setDomicilioDelegacion($domicilioDelegacion)
+    {
+        $this->domicilio_delegacion = $domicilioDelegacion;
+
+        return $this;
+    }
+
+    /**
+     * Get domicilioDelegacion
+     *
+     * @return string
+     */
+    public function getDomicilioDelegacion()
+    {
+        return $this->domicilio_delegacion;
+    }
+
+    /**
+     * Set domicilioEstado
+     *
+     * @param string $domicilioEstado
+     *
+     * @return Cliente
+     */
+    public function setDomicilioEstado($domicilioEstado)
+    {
+        $this->domicilio_estado = $domicilioEstado;
+
+        return $this;
+    }
+
+    /**
+     * Get domicilioEstado
+     *
+     * @return string
+     */
+    public function getDomicilioEstado()
+    {
+        return $this->domicilio_estado;
+    }
+
+    /**
+     * Set domicilioPais
+     *
+     * @param string $domicilioPais
+     *
+     * @return Cliente
+     */
+    public function setDomicilioPais($domicilioPais)
+    {
+        $this->domicilio_pais = $domicilioPais;
+
+        return $this;
+    }
+
+    /**
+     * Get domicilioPais
+     *
+     * @return string
+     */
+    public function getDomicilioPais()
+    {
+        return $this->domicilio_pais;
+    }
+
+    /**
+     * Set domicilioCp
+     *
+     * @param string $domicilioCp
+     *
+     * @return Cliente
+     */
+    public function setDomicilioCp($domicilioCp)
+    {
+        $this->domicilio_cp = $domicilioCp;
+
+        return $this;
+    }
+
+    /**
+     * Get domicilioCp
+     *
+     * @return string
+     */
+    public function getDomicilioCp()
+    {
+        return $this->domicilio_cp;
+    }
+
+    /**
+     * Set codigoUser
+     *
+     * @param string $codigoUser
+     *
+     * @return Cliente
+     */
+    public function setCodigoUser($codigoUser)
+    {
+        $this->codigo_user = $codigoUser;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoUser
+     *
+     * @return string
+     */
+    public function getCodigoUser()
+    {
+        return $this->codigo_user;
     }
 }

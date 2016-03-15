@@ -13,6 +13,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Ubicacion extends GenericEntity
 {
+
+    public function __toString(){
+        return $this->getUbicacion();
+    }
+
     public function __construct()
     {
         $this->token = GenericEntity::generateNewToken();

@@ -13,6 +13,22 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Medio extends GenericEntity
 {
+    public function __toString(){
+
+        $toString = '';
+
+        if ($this->getUbicacion() && $this->getUbicacion()->getUbicacion() != ''){
+            $toString .= $this->getUbicacion()->getUbicacion();
+        }
+        if ($this->getTipoMedio() != ''){
+            $toString .= $this->getTipoMedio();
+        }
+        if ($this->getSubtipoMedio() && $this->getSubtipoMedio()->getDescripcion() != ''){
+            $toString .= $this->getSubtipoMedio()->getDescripcion();
+        }
+        return $toString;
+    }
+
     public function __construct()
     {
         $this->token = GenericEntity::generateNewToken();

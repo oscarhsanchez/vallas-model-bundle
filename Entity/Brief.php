@@ -54,12 +54,12 @@ class Brief extends GenericEntity
     protected $cliente;
 
     /**
-     * @var User
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\User")
-     * @ORM\JoinColumn(name="codigo_user", referencedColumnName="codigo", nullable=true)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
-    protected $user;
+    protected $codigo_user;
+
     //public fk_marca;
 
     /**
