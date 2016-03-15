@@ -233,4 +233,100 @@ class SubtipoMedio extends GenericEntity
     {
         return $this->estado;
     }
+
+    /**
+     * Set unidadNegocio
+     *
+     * @param string $unidadNegocio
+     *
+     * @return SubtipoMedio
+     */
+    public function setUnidadNegocio($unidadNegocio)
+    {
+        $this->unidad_negocio = $unidadNegocio;
+
+        return $this;
+    }
+
+    /**
+     * Get unidadNegocio
+     *
+     * @return string
+     */
+    public function getUnidadNegocio()
+    {
+        return $this->unidad_negocio;
+    }
+
+    /**
+     * Set pais
+     *
+     * @param \Vallas\ModelBundle\Entity\Pais $pais
+     *
+     * @return SubtipoMedio
+     */
+    public function setPais(\Vallas\ModelBundle\Entity\Pais $pais)
+    {
+        $this->pais = $pais;
+
+        return $this;
+    }
+
+    /**
+     * Get pais
+     *
+     * @return \Vallas\ModelBundle\Entity\Pais
+     */
+    public function getPais()
+    {
+        return $this->pais;
+    }
+
+    /**
+     * Set tipoMedio
+     *
+     * @param \Vallas\ModelBundle\Entity\TipoMedio $tipoMedio
+     *
+     * @return SubtipoMedio
+     */
+    public function setTipoMedio(\Vallas\ModelBundle\Entity\TipoMedio $tipoMedio = null)
+    {
+        $this->tipoMedio = $tipoMedio;
+
+        return $this;
+    }
+
+    /**
+     * Get tipoMedio
+     *
+     * @return \Vallas\ModelBundle\Entity\TipoMedio
+     */
+    public function getTipoMedio()
+    {
+        return $this->tipoMedio;
+    }
+
+    /**
+     * Set empresa
+     *
+     * @param \Vallas\ModelBundle\Entity\Empresa $empresa
+     *
+     * @return SubtipoMedio
+     */
+    public function setEmpresa(\Vallas\ModelBundle\Entity\Empresa $empresa = null)
+    {
+        $this->empresa = $empresa;
+
+        return $this;
+    }
+
+    /**
+     * Get empresa
+     *
+     * @return \Vallas\ModelBundle\Entity\Empresa
+     */
+    public function getEmpresa()
+    {
+        return $this->empresa;
+    }
 }

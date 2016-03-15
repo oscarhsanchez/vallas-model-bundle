@@ -103,6 +103,7 @@ Vallas\ModelBundle\Entity\Role:
 Vallas\ModelBundle\Entity\User:
     admin:
         username: admin
+        codigo: admin
         name: Administrator
         email: admin@qvel.com
         plainPassword: 123
@@ -116,6 +117,7 @@ Vallas\ModelBundle\Entity\User:
         surnames: <word()>
     superAdmin:
         username: superadmin
+        codigo: superadmin
         name: Super Administrador
         email: superadmin@qvel.com
         plainPassword: 123
@@ -129,6 +131,7 @@ Vallas\ModelBundle\Entity\User:
         surnames: <word()>
     user{1..10}:
         username: <username()><current()>
+        codigo: user<current()>
         name: <name()>
         email: <email()>
         plainPassword: 123
@@ -191,6 +194,69 @@ Vallas\ModelBundle\Entity\UserPais:
   superAdmin_pais_{1..3}:
     user: @superAdmin
     pais: @country*
-  user_pais_{1..10}:
+  user_pais_{2..10}:
     user: @user<current()>
     pais: @country*
+  user_pais_1_1:
+    user: @user1
+    pais: @country1
+  user_pais_1_2:
+    user: @user1
+    pais: @country2
+  user_pais_1_3:
+    user: @user1
+    pais: @country3
+
+Vallas\ModelBundle\Entity\Empresa:
+  empresa{1..50}:
+    token: <sha1()>
+    pais: @country1
+    rfc: empresa<current()>
+    created_at: <dateTimeThisYear('now')>
+    updated_at: <dateTimeThisYear('now')>
+
+Vallas\ModelBundle\Entity\Plaza:
+  plaza{1..50}:
+    pk_plaza: pl<current()>
+    token: <sha1()>
+    pais: @country1
+    empresa: @empresa*
+    nombre: <word()>
+    created_at: <dateTimeThisYear('now')>
+    updated_at: <dateTimeThisYear('now')>
+
+Vallas\ModelBundle\Entity\Ubicacion:
+  ubicacion{1..50}:
+    pk_ubicacion: ubicacion<current()>
+    token: <sha1()>
+    pais: @country1
+    ubicacion: <word()>
+    empresa: @empresa*
+    plaza: @plaza*
+    anio: <numberBetween(2000, 2020)>
+    latitud: <numberBetween(2000, 2020)>
+    longitud: <numberBetween(2000, 2020)>
+    created_at: <dateTimeThisYear('now')>
+    updated_at: <dateTimeThisYear('now')>
+
+Vallas\ModelBundle\Entity\SubtipoMedio:
+  subtipoMedio{1..50}:
+    token: <sha1()>
+    pk_subtipo: sM<current()>
+    pais: @country1
+    descripcion: <word()>
+    empresa: @empresa*
+    created_at: <dateTimeThisYear('now')>
+    updated_at: <dateTimeThisYear('now')>
+
+Vallas\ModelBundle\Entity\Medio:
+  medio_{1..50}:
+    pk_medio: medio<current()>
+    fk_pais: @country1
+    posicion: <numberBetween(1, 10)>
+    id_cara: <numberBetween(1, 10)>
+    ubicacion: @ubicacion*
+    subtipoMedio: @subtipoMedio*
+    coste: <numberBetween(1, 500)>
+    created_at: <dateTimeThisYear('now')>
+    updated_at: <dateTimeThisYear('now')>

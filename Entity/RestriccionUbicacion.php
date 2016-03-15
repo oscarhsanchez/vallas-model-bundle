@@ -85,4 +85,206 @@ class RestriccionUbicacion extends GenericEntity
     protected $estado = true;
 
 
+
+    /**
+     * Get pkRestriccionUbicacion
+     *
+     * @return integer
+     */
+    public function getPkRestriccionUbicacion()
+    {
+        return $this->pk_restriccion_ubicacion;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return RestriccionUbicacion
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return RestriccionUbicacion
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set token
+     *
+     * @param string $token
+     *
+     * @return RestriccionUbicacion
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * Get token
+     *
+     * @return string
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param integer $estado
+     *
+     * @return RestriccionUbicacion
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return integer
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * Set fkPais
+     *
+     * @param \Vallas\ModelBundle\Entity\Pais $fkPais
+     *
+     * @return RestriccionUbicacion
+     */
+    public function setFkPais(\Vallas\ModelBundle\Entity\Pais $fkPais)
+    {
+        $this->fk_pais = $fkPais;
+
+        return $this;
+    }
+
+    /**
+     * Get fkPais
+     *
+     * @return \Vallas\ModelBundle\Entity\Pais
+     */
+    public function getFkPais()
+    {
+        return $this->fk_pais;
+    }
+
+    /**
+     * Set ubicacion
+     *
+     * @param \Vallas\ModelBundle\Entity\Ubicacion $ubicacion
+     *
+     * @return RestriccionUbicacion
+     */
+    public function setUbicacion(\Vallas\ModelBundle\Entity\Ubicacion $ubicacion = null)
+    {
+        $this->ubicacion = $ubicacion;
+
+        return $this;
+    }
+
+    /**
+     * Get ubicacion
+     *
+     * @return \Vallas\ModelBundle\Entity\Ubicacion
+     */
+    public function getUbicacion()
+    {
+        return $this->ubicacion;
+    }
+
+    /**
+     * Set cliente
+     *
+     * @param \Vallas\ModelBundle\Entity\Cliente $cliente
+     *
+     * @return RestriccionUbicacion
+     */
+    public function setCliente(\Vallas\ModelBundle\Entity\Cliente $cliente = null)
+    {
+        $this->cliente = $cliente;
+
+        return $this;
+    }
+
+    /**
+     * Get cliente
+     *
+     * @return \Vallas\ModelBundle\Entity\Cliente
+     */
+    public function getCliente()
+    {
+        return $this->cliente;
+    }
+
+    /**
+     * Set categoriaPropuesta
+     *
+     * @param \Vallas\ModelBundle\Entity\CategoriaPropuesta $categoriaPropuesta
+     *
+     * @return RestriccionUbicacion
+     */
+    public function setCategoriaPropuesta(\Vallas\ModelBundle\Entity\CategoriaPropuesta $categoriaPropuesta = null)
+    {
+        $this->categoria_propuesta = $categoriaPropuesta;
+
+        return $this;
+    }
+
+    /**
+     * Get categoriaPropuesta
+     *
+     * @return \Vallas\ModelBundle\Entity\CategoriaPropuesta
+     */
+    public function getCategoriaPropuesta()
+    {
+        return $this->categoria_propuesta;
+    }
 }

@@ -319,4 +319,77 @@ class LogOrdenTrabajo extends GenericEntity
     {
         return $this->estado;
     }
+
+    /**
+     * Set fecha
+     *
+     * @param \DateTime $fecha
+     *
+     * @return LogOrdenTrabajo
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+
+        return $this;
+    }
+
+    /**
+     * Get fecha
+     *
+     * @return \DateTime
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    /**
+     * Set accion
+     *
+     * @param string $accion
+     *
+     * @return LogOrdenTrabajo
+     */
+    public function setAccion($accion)
+    {
+        $this->accion = $accion;
+
+        return $this;
+    }
+
+    /**
+     * Get accion
+     *
+     * @return string
+     */
+    public function getAccion()
+    {
+        return $this->accion;
+    }
+
+
+    /**
+     * Set codigoUser
+     *
+     * @param string $codigoUser
+     *
+     * @return LogOrdenTrabajo
+     */
+    public function setCodigoUser($codigoUser)
+    {
+        $this->codigo_user = $codigoUser;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoUser
+     *
+     * @return string
+     */
+    public function getCodigoUser()
+    {
+        return $this->codigo_user;
+    }
 }

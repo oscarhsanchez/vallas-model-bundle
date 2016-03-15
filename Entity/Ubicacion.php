@@ -717,4 +717,196 @@ class Ubicacion extends GenericEntity
     {
         return $this->plaza;
     }
+
+    /**
+     * Set traficoVehicular
+     *
+     * @param string $traficoVehicular
+     *
+     * @return Ubicacion
+     */
+    public function setTraficoVehicular($traficoVehicular)
+    {
+        $this->trafico_vehicular = $traficoVehicular;
+
+        return $this;
+    }
+
+    /**
+     * Get traficoVehicular
+     *
+     * @return string
+     */
+    public function getTraficoVehicular()
+    {
+        return $this->trafico_vehicular;
+    }
+
+    /**
+     * Set traficoTranseuntes
+     *
+     * @param string $traficoTranseuntes
+     *
+     * @return Ubicacion
+     */
+    public function setTraficoTranseuntes($traficoTranseuntes)
+    {
+        $this->trafico_transeuntes = $traficoTranseuntes;
+
+        return $this;
+    }
+
+    /**
+     * Get traficoTranseuntes
+     *
+     * @return string
+     */
+    public function getTraficoTranseuntes()
+    {
+        return $this->trafico_transeuntes;
+    }
+
+    /**
+     * Set nivelSocioeconomico
+     *
+     * @param string $nivelSocioeconomico
+     *
+     * @return Ubicacion
+     */
+    public function setNivelSocioeconomico($nivelSocioeconomico)
+    {
+        $this->nivel_socioeconomico = $nivelSocioeconomico;
+
+        return $this;
+    }
+
+    /**
+     * Get nivelSocioeconomico
+     *
+     * @return string
+     */
+    public function getNivelSocioeconomico()
+    {
+        return $this->nivel_socioeconomico;
+    }
+
+    /**
+     * Set lugaresCercanos
+     *
+     * @param string $lugaresCercanos
+     *
+     * @return Ubicacion
+     */
+    public function setLugaresCercanos($lugaresCercanos)
+    {
+        $this->lugares_cercanos = $lugaresCercanos;
+
+        return $this;
+    }
+
+    /**
+     * Get lugaresCercanos
+     *
+     * @return string
+     */
+    public function getLugaresCercanos()
+    {
+        return $this->lugares_cercanos;
+    }
+
+    /**
+     * Set reserva
+     *
+     * @param integer $reserva
+     *
+     * @return Ubicacion
+     */
+    public function setReserva($reserva)
+    {
+        $this->reserva = $reserva;
+
+        return $this;
+    }
+
+    /**
+     * Get reserva
+     *
+     * @return integer
+     */
+    public function getReserva()
+    {
+        return $this->reserva;
+    }
+
+    /**
+     * Set zonaFijacion
+     *
+     * @param \Vallas\ModelBundle\Entity\Zona $zonaFijacion
+     *
+     * @return Ubicacion
+     */
+    public function setZonaFijacion(\Vallas\ModelBundle\Entity\Zona $zonaFijacion = null)
+    {
+        $this->zona_fijacion = $zonaFijacion;
+
+        return $this;
+    }
+
+    /**
+     * Get zonaFijacion
+     *
+     * @return \Vallas\ModelBundle\Entity\Zona
+     */
+    public function getZonaFijacion()
+    {
+        return $this->zona_fijacion;
+    }
+
+    /**
+     * Set zonaIluminacion
+     *
+     * @param \Vallas\ModelBundle\Entity\Zona $zonaIluminacion
+     *
+     * @return Ubicacion
+     */
+    public function setZonaIluminacion(\Vallas\ModelBundle\Entity\Zona $zonaIluminacion = null)
+    {
+        $this->zona_iluminacion = $zonaIluminacion;
+
+        return $this;
+    }
+
+    /**
+     * Get zonaIluminacion
+     *
+     * @return \Vallas\ModelBundle\Entity\Zona
+     */
+    public function getZonaIluminacion()
+    {
+        return $this->zona_iluminacion;
+    }
+
+    /**
+     * Set zonaInstalacion
+     *
+     * @param \Vallas\ModelBundle\Entity\Zona $zonaInstalacion
+     *
+     * @return Ubicacion
+     */
+    public function setZonaInstalacion(\Vallas\ModelBundle\Entity\Zona $zonaInstalacion = null)
+    {
+        $this->zona_instalacion = $zonaInstalacion;
+
+        return $this;
+    }
+
+    /**
+     * Get zonaInstalacion
+     *
+     * @return \Vallas\ModelBundle\Entity\Zona
+     */
+    public function getZonaInstalacion()
+    {
+        return $this->zona_instalacion;
+    }
 }

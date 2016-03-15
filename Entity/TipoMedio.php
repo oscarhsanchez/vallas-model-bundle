@@ -279,4 +279,76 @@ class TipoMedio extends GenericEntity
     {
         return $this->empresa;
     }
+
+    /**
+     * Set pkTipo
+     *
+     * @param string $pkTipo
+     *
+     * @return TipoMedio
+     */
+    public function setPkTipo($pkTipo)
+    {
+        $this->pk_tipo = $pkTipo;
+
+        return $this;
+    }
+
+    /**
+     * Get pkTipo
+     *
+     * @return string
+     */
+    public function getPkTipo()
+    {
+        return $this->pk_tipo;
+    }
+
+    /**
+     * Set unidadNegocio
+     *
+     * @param string $unidadNegocio
+     *
+     * @return TipoMedio
+     */
+    public function setUnidadNegocio($unidadNegocio)
+    {
+        $this->unidad_negocio = $unidadNegocio;
+
+        return $this;
+    }
+
+    /**
+     * Get unidadNegocio
+     *
+     * @return string
+     */
+    public function getUnidadNegocio()
+    {
+        return $this->unidad_negocio;
+    }
+
+    /**
+     * Set descripcion
+     *
+     * @param string $descripcion
+     *
+     * @return TipoMedio
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return string
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
 }

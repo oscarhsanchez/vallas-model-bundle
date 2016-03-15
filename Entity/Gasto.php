@@ -387,4 +387,28 @@ class Gasto extends GenericEntity
     {
         return $this->medio;
     }
+
+    /**
+     * Set ubicacion
+     *
+     * @param \Vallas\ModelBundle\Entity\Ubicacion $ubicacion
+     *
+     * @return Gasto
+     */
+    public function setUbicacion(\Vallas\ModelBundle\Entity\Ubicacion $ubicacion = null)
+    {
+        $this->ubicacion = $ubicacion;
+
+        return $this;
+    }
+
+    /**
+     * Get ubicacion
+     *
+     * @return \Vallas\ModelBundle\Entity\Ubicacion
+     */
+    public function getUbicacion()
+    {
+        return $this->ubicacion;
+    }
 }
