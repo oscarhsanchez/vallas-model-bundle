@@ -48,7 +48,7 @@ class Imagen extends GenericEntity
     /**
      * @var OrdenTrabajo
      *
-     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\OrdenTrabajo")
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\OrdenTrabajo", inversedBy="imagenes")
      * @ORM\JoinColumn(name="fk_orden_trabajo", referencedColumnName="pk_orden_trabajo", nullable=false)
      */
     protected $orden_trabajo;

@@ -4,7 +4,6 @@ namespace Vallas\ModelBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ESocial\ModelBundle\Entity\GenericEntity;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="Vallas\ModelBundle\Repository\OrdenTrabajoRepository")
@@ -90,19 +89,16 @@ class OrdenTrabajo extends GenericEntity
     protected $codigo_user;
 
     /**
-     * @Assert\NotBlank()
      * @ORM\Column(type="smallint", nullable=false)
      */
     protected $tipo;
 
     /**
-     * @Assert\NotBlank()
      * @ORM\Column(type="smallint", nullable=false)
      */
     protected $estado_orden;
 
     /**
-     * @Assert\NotBlank()
      * @ORM\Column(type="date", nullable=false)
      */
     protected $fecha_limite;
@@ -139,6 +135,11 @@ class OrdenTrabajo extends GenericEntity
      * @ORM\Column(type="smallint",options={"default" = 1})
      */
     protected $estado = true;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Imagen", mappedBy="orden_trabajo", cascade={"persist","remove"})
+     **/
+    protected $imagenes;
 
 
     /**
@@ -486,5 +487,39 @@ class OrdenTrabajo extends GenericEntity
     public function getCodigoUser()
     {
         return $this->codigo_user;
+    }
+
+    /**
+     * Add imagene
+     *
+     * @param \Vallas\ModelBundle\Entity\Imagen $imagene
+     *
+     * @return OrdenTrabajo
+     */
+    public function addImagene(\Vallas\ModelBundle\Entity\Imagen $imagene)
+    {
+        $this->imagenes[] = $imagene;
+
+        return $this;
+    }
+
+    /**
+     * Remove imagene
+     *
+     * @param \Vallas\ModelBundle\Entity\Imagen $imagene
+     */
+    public function removeImagene(\Vallas\ModelBundle\Entity\Imagen $imagene)
+    {
+        $this->imagenes->removeElement($imagene);
+    }
+
+    /**
+     * Get imagenes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImagenes()
+    {
+        return $this->imagenes;
     }
 }
