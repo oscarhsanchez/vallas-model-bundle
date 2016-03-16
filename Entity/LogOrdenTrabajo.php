@@ -50,7 +50,7 @@ class LogOrdenTrabajo extends GenericEntity
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=45, nullable = false, unique=true)
+     * @ORM\Column(type="string", length=45, nullable = false)
      */
     protected $accion;
 
