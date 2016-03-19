@@ -38,6 +38,22 @@ class LogOrdenTrabajo extends GenericEntity
     protected $id;
 
     /**
+     * @var Pais
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Pais")
+     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais", nullable=false)
+     */
+    protected $pais;
+
+    /**
+     * @var OrdenTrabajo
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\OrdenTrabajo", inversedBy="imagenes")
+     * @ORM\JoinColumn(name="fk_orden_trabajo", referencedColumnName="pk_orden_trabajo", nullable=false)
+     */
+    protected $orden_trabajo;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="string", length=20, nullable=true)
