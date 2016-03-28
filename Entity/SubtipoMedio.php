@@ -37,7 +37,7 @@ class SubtipoMedio extends GenericEntity
 
     /**
      * @ORM\Id
-     * @ORM\Column(type="string", length=6)
+     * @ORM\Column(type="string", length=30)
      */
     protected  $pk_subtipo;
 
