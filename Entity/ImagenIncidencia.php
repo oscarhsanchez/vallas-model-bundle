@@ -405,4 +405,28 @@ class ImagenIncidencia extends GenericEntity
     {
         return $this->estado_imagen;
     }
+
+    /**
+     * Set incidencia
+     *
+     * @param \Vallas\ModelBundle\Entity\Incidencia $incidencia
+     *
+     * @return ImagenIncidencia
+     */
+    public function setIncidencia(\Vallas\ModelBundle\Entity\Incidencia $incidencia)
+    {
+        $this->incidencia = $incidencia;
+
+        return $this;
+    }
+
+    /**
+     * Get incidencia
+     *
+     * @return \Vallas\ModelBundle\Entity\Incidencia
+     */
+    public function getIncidencia()
+    {
+        return $this->incidencia;
+    }
 }

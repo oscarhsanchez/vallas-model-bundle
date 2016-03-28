@@ -18,13 +18,13 @@ class Medio extends GenericEntity
         $toString = '';
 
         if ($this->getUbicacion() && $this->getUbicacion()->getUbicacion() != ''){
-            $toString .= $this->getUbicacion()->getUbicacion();
+            $toString .= $this->getUbicacion()->getUbicacion().' ';
         }
         if ($this->getTipoMedio() != ''){
-            $toString .= $this->getTipoMedio();
+            $toString .= $this->getTipoMedio().' ';
         }
         if ($this->getSubtipoMedio() && $this->getSubtipoMedio()->getDescripcion() != ''){
-            $toString .= $this->getSubtipoMedio()->getDescripcion();
+            $toString .= $this->getSubtipoMedio()->getDescripcion().' ';
         }
         return $toString;
     }
