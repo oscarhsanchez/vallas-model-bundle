@@ -36,10 +36,21 @@ class Zona extends GenericEntity
     }
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(type="integer")
      * @ORM\Id
-     * @ORM\Column(type="string", length=15)
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $pk_zona;
+
+    /**
+     * @var Pais
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Pais")
+     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais", nullable=false)
+     */
+    protected $pais;
 
     /**
      * @ORM\Column(type="smallint",options={"default" = 1})
@@ -234,5 +245,29 @@ class Zona extends GenericEntity
     public function getToken()
     {
         return $this->token;
+    }
+
+    /**
+     * Set pais
+     *
+     * @param \Vallas\ModelBundle\Entity\Pais $pais
+     *
+     * @return AccionCliente
+     */
+    public function setPais(\Vallas\ModelBundle\Entity\Pais $pais = null)
+    {
+        $this->pais = $pais;
+
+        return $this;
+    }
+
+    /**
+     * Get pais
+     *
+     * @return \Vallas\ModelBundle\Entity\Pais
+     */
+    public function getPais()
+    {
+        return $this->pais;
     }
 }
