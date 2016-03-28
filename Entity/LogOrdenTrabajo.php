@@ -48,7 +48,7 @@ class LogOrdenTrabajo extends GenericEntity
     /**
      * @var OrdenTrabajo
      *
-     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\OrdenTrabajo", inversedBy="imagenes")
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\OrdenTrabajo", inversedBy="logs")
      * @ORM\JoinColumn(name="fk_orden_trabajo", referencedColumnName="pk_orden_trabajo", nullable=false)
      */
     protected $orden_trabajo;
@@ -262,5 +262,53 @@ class LogOrdenTrabajo extends GenericEntity
     public function getEstado()
     {
         return $this->estado;
+    }
+
+    /**
+     * Set pais
+     *
+     * @param \Vallas\ModelBundle\Entity\Pais $pais
+     *
+     * @return LogOrdenTrabajo
+     */
+    public function setPais(\Vallas\ModelBundle\Entity\Pais $pais)
+    {
+        $this->pais = $pais;
+
+        return $this;
+    }
+
+    /**
+     * Get pais
+     *
+     * @return \Vallas\ModelBundle\Entity\Pais
+     */
+    public function getPais()
+    {
+        return $this->pais;
+    }
+
+    /**
+     * Set ordenTrabajo
+     *
+     * @param \Vallas\ModelBundle\Entity\OrdenTrabajo $ordenTrabajo
+     *
+     * @return LogOrdenTrabajo
+     */
+    public function setOrdenTrabajo(\Vallas\ModelBundle\Entity\OrdenTrabajo $ordenTrabajo)
+    {
+        $this->orden_trabajo = $ordenTrabajo;
+
+        return $this;
+    }
+
+    /**
+     * Get ordenTrabajo
+     *
+     * @return \Vallas\ModelBundle\Entity\OrdenTrabajo
+     */
+    public function getOrdenTrabajo()
+    {
+        return $this->orden_trabajo;
     }
 }

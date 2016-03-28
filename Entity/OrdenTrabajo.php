@@ -141,6 +141,11 @@ class OrdenTrabajo extends GenericEntity
      **/
     protected $imagenes;
 
+    /**
+     * @ORM\OneToMany(targetEntity="LogOrdenTrabajo", mappedBy="orden_trabajo", cascade={"persist", "remove"})
+     **/
+    protected $logs;
+
 
     /**
      * Get pkOrdenTrabajo
@@ -521,5 +526,39 @@ class OrdenTrabajo extends GenericEntity
     public function getImagenes()
     {
         return $this->imagenes;
+    }
+
+    /**
+     * Add log
+     *
+     * @param \Vallas\ModelBundle\Entity\LogOrdenTrabajo $log
+     *
+     * @return OrdenTrabajo
+     */
+    public function addLog(\Vallas\ModelBundle\Entity\LogOrdenTrabajo $log)
+    {
+        $this->logs[] = $log;
+
+        return $this;
+    }
+
+    /**
+     * Remove log
+     *
+     * @param \Vallas\ModelBundle\Entity\LogOrdenTrabajo $log
+     */
+    public function removeLog(\Vallas\ModelBundle\Entity\LogOrdenTrabajo $log)
+    {
+        $this->logs->removeElement($log);
+    }
+
+    /**
+     * Get logs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLogs()
+    {
+        return $this->logs;
     }
 }
