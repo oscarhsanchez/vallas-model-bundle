@@ -74,6 +74,13 @@ class Session extends GenericEntity
     protected $user;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=20, nullable = true)
+     */
+    protected $codigo;
+
+    /**
      * @var Pais
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Pais")
