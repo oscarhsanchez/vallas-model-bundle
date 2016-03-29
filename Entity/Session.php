@@ -370,4 +370,28 @@ class Session extends GenericEntity
     {
         return $this->expires_at;
     }
+
+    /**
+     * Set codigo
+     *
+     * @param string $codigo
+     *
+     * @return Session
+     */
+    public function setCodigo($codigo)
+    {
+        $this->codigo = $codigo;
+
+        return $this;
+    }
+
+    /**
+     * Get codigo
+     *
+     * @return string
+     */
+    public function getCodigo()
+    {
+        return $this->codigo;
+    }
 }

@@ -63,7 +63,7 @@ class Medio extends GenericEntity
     /**
      * @var Ubicacion
      *
-     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Ubicacion")
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Ubicacion", inversedBy="medios")
      * @ORM\JoinColumn(name="fk_ubicacion", referencedColumnName="pk_ubicacion")
      */
     protected $ubicacion;

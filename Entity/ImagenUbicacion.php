@@ -48,7 +48,7 @@ class ImagenUbicacion extends GenericEntity
     /**
      * @var Ubicacion
      *
-     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Ubicacion")
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Ubicacion", inversedBy="imagenes")
      * @ORM\JoinColumn(name="fk_ubicacion", referencedColumnName="pk_ubicacion")
      */
     protected $ubicacion;
@@ -412,5 +412,53 @@ class ImagenUbicacion extends GenericEntity
     public function getEstadoImagen()
     {
         return $this->estado_imagen;
+    }
+
+    /**
+     * Set ubicacion
+     *
+     * @param \Vallas\ModelBundle\Entity\Ubicacion $ubicacion
+     *
+     * @return ImagenUbicacion
+     */
+    public function setUbicacion(\Vallas\ModelBundle\Entity\Ubicacion $ubicacion = null)
+    {
+        $this->ubicacion = $ubicacion;
+
+        return $this;
+    }
+
+    /**
+     * Get ubicacion
+     *
+     * @return \Vallas\ModelBundle\Entity\Ubicacion
+     */
+    public function getUbicacion()
+    {
+        return $this->ubicacion;
+    }
+
+    /**
+     * Set medio
+     *
+     * @param \Vallas\ModelBundle\Entity\Medio $medio
+     *
+     * @return ImagenUbicacion
+     */
+    public function setMedio(\Vallas\ModelBundle\Entity\Medio $medio = null)
+    {
+        $this->medio = $medio;
+
+        return $this;
+    }
+
+    /**
+     * Get medio
+     *
+     * @return \Vallas\ModelBundle\Entity\Medio
+     */
+    public function getMedio()
+    {
+        return $this->medio;
     }
 }

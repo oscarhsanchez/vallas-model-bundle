@@ -159,8 +159,6 @@ class Ubicacion extends GenericEntity
      */
     protected $lugares_cercanos;
 
-
-
     /**
      * @var string
      *
@@ -217,6 +215,16 @@ class Ubicacion extends GenericEntity
      * @ORM\Column(type="smallint",options={"default" = 1})
      */
     protected $estado = true;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ImagenUbicacion", mappedBy="ubicacion", cascade={"persist","remove"})
+     **/
+    protected $imagenes;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Medio", mappedBy="ubicacion", cascade={"persist","remove"})
+     **/
+    protected $medios;
 
 
     /**
@@ -913,5 +921,73 @@ class Ubicacion extends GenericEntity
     public function getZonaInstalacion()
     {
         return $this->zona_instalacion;
+    }
+
+    /**
+     * Add imagene
+     *
+     * @param \Vallas\ModelBundle\Entity\ImagenUbicacion $imagene
+     *
+     * @return Ubicacion
+     */
+    public function addImagene(\Vallas\ModelBundle\Entity\ImagenUbicacion $imagene)
+    {
+        $this->imagenes[] = $imagene;
+
+        return $this;
+    }
+
+    /**
+     * Remove imagene
+     *
+     * @param \Vallas\ModelBundle\Entity\ImagenUbicacion $imagene
+     */
+    public function removeImagene(\Vallas\ModelBundle\Entity\ImagenUbicacion $imagene)
+    {
+        $this->imagenes->removeElement($imagene);
+    }
+
+    /**
+     * Get imagenes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getImagenes()
+    {
+        return $this->imagenes;
+    }
+
+    /**
+     * Add medio
+     *
+     * @param \Vallas\ModelBundle\Entity\Medio $medio
+     *
+     * @return Ubicacion
+     */
+    public function addMedio(\Vallas\ModelBundle\Entity\Medio $medio)
+    {
+        $this->medios[] = $medio;
+
+        return $this;
+    }
+
+    /**
+     * Remove medio
+     *
+     * @param \Vallas\ModelBundle\Entity\Medio $medio
+     */
+    public function removeMedio(\Vallas\ModelBundle\Entity\Medio $medio)
+    {
+        $this->medios->removeElement($medio);
+    }
+
+    /**
+     * Get medios
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMedios()
+    {
+        return $this->medios;
     }
 }
