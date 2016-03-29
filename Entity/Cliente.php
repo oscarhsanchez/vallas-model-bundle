@@ -51,7 +51,7 @@ class Cliente extends GenericEntity
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=15, nullable = false, unique=true)
+     * @ORM\Column(type="string", length=15, nullable = false, unique=false)
      */
     protected $rfc;
 
@@ -99,7 +99,7 @@ class Cliente extends GenericEntity
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=40, nullable = true, unique=false)
+     * @ORM\Column(type="string", length=100, nullable = true, unique=false)
      */
     protected $domicilio_no_exterior;
     /**
@@ -138,6 +138,14 @@ class Cliente extends GenericEntity
      * @ORM\Column(type="string", length=20, nullable = true, unique=false)
      */
     protected $domicilio_cp;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=25, nullable = true, unique=false)
+     */
+    protected $telefono;
+
     /**
      * @var float
      *

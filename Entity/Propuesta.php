@@ -139,7 +139,14 @@ class Propuesta extends GenericEntity
      */
     protected $comision_agencia;
 
-    /** @ORM\Column(type="text") */
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=14, nullable = true, unique=false)
+     */
+    protected $unidad_negocio;
+
+    /** @ORM\Column(type="text", nullable=true) */
     protected $observaciones;
 
     /**

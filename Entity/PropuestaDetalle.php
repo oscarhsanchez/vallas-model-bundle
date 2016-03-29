@@ -72,9 +72,9 @@ class PropuestaDetalle extends GenericEntity
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=30, nullable = false, unique=false)
+     * @ORM\Column(type="string", length=45, nullable = true, unique=false)
      */
-    protected $tipo_negociacion;
+    protected $clasificacion;
 
     /**
      * @var Ubicacion
@@ -83,6 +83,31 @@ class PropuestaDetalle extends GenericEntity
      * @ORM\JoinColumn(name="fk_ubicacion", referencedColumnName="pk_ubicacion")
      */
     protected $ubicacion;
+
+    /**
+     * @var TipoMedio
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\TipoMedio")
+     * @ORM\JoinColumn(name="fk_tipo", referencedColumnName="pk_tipo", nullable=true)
+     */
+    protected $tipoMedio;
+
+    /**
+     * @var SubtipoMedio
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\SubtipoMedio")
+     * @ORM\JoinColumn(name="fk_subtipo", referencedColumnName="pk_subtipo")
+     */
+    protected $subtipoMedio;
+
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=30, nullable = false, unique=false)
+     */
+    protected $tipo_negociacion;
 
     /**
      * @var string
