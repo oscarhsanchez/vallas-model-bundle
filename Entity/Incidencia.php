@@ -2,6 +2,7 @@
 
 namespace Vallas\ModelBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use ESocial\ModelBundle\Entity\GenericEntity;
 
@@ -45,6 +46,7 @@ class Incidencia extends GenericEntity
     public function __construct()
     {
         $this->token = GenericEntity::generateNewToken();
+        $this->imagenes = new ArrayCollection();
     }
 
     /**
