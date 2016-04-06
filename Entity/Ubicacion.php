@@ -181,7 +181,7 @@ class Ubicacion extends GenericEntity
     /**
      * @var string
      *
-     * @ORM\Column(type="string", length=160, nullable = true, unique=false)
+     * @ORM\Column(type="string", length=260, nullable = true, unique=false)
      */
     protected $observaciones;
 
