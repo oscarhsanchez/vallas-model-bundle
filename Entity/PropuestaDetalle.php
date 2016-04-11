@@ -2,6 +2,7 @@
 
 namespace Vallas\ModelBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use ESocial\ModelBundle\Entity\GenericEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -16,6 +17,7 @@ class PropuestaDetalle extends GenericEntity
     public function __construct()
     {
         $this->token = GenericEntity::generateNewToken();
+        $this->propuesta_detalle_outdoors = new ArrayCollection();
     }
 
     /**
@@ -32,10 +34,10 @@ class PropuestaDetalle extends GenericEntity
 
     /**
      * @ORM\Id
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      */
-    protected  $pk_propuesta_detalle;
+    protected $pk_propuesta_detalle;
 
 
     /**
@@ -139,6 +141,11 @@ class PropuestaDetalle extends GenericEntity
      * @ORM\Column(type="float")
      */
     protected $total;
+
+    /**
+     * @ORM\OneToMany(targetEntity="PropuestaDetalleOutdoor", mappedBy="propuestaDetalle", cascade={"persist","remove"})
+     **/
+    protected $propuesta_detalle_outdoors;
 
     /** @ORM\Column(type="datetime", nullable = true) */
     protected $created_at;
@@ -523,5 +530,111 @@ class PropuestaDetalle extends GenericEntity
     public function getUbicacion()
     {
         return $this->ubicacion;
+    }
+
+    /**
+     * Set clasificacion
+     *
+     * @param string $clasificacion
+     *
+     * @return PropuestaDetalle
+     */
+    public function setClasificacion($clasificacion)
+    {
+        $this->clasificacion = $clasificacion;
+
+        return $this;
+    }
+
+    /**
+     * Get clasificacion
+     *
+     * @return string
+     */
+    public function getClasificacion()
+    {
+        return $this->clasificacion;
+    }
+
+    /**
+     * Set tipoMedio
+     *
+     * @param \Vallas\ModelBundle\Entity\TipoMedio $tipoMedio
+     *
+     * @return PropuestaDetalle
+     */
+    public function setTipoMedio(\Vallas\ModelBundle\Entity\TipoMedio $tipoMedio = null)
+    {
+        $this->tipoMedio = $tipoMedio;
+
+        return $this;
+    }
+
+    /**
+     * Get tipoMedio
+     *
+     * @return \Vallas\ModelBundle\Entity\TipoMedio
+     */
+    public function getTipoMedio()
+    {
+        return $this->tipoMedio;
+    }
+
+    /**
+     * Set subtipoMedio
+     *
+     * @param \Vallas\ModelBundle\Entity\SubtipoMedio $subtipoMedio
+     *
+     * @return PropuestaDetalle
+     */
+    public function setSubtipoMedio(\Vallas\ModelBundle\Entity\SubtipoMedio $subtipoMedio = null)
+    {
+        $this->subtipoMedio = $subtipoMedio;
+
+        return $this;
+    }
+
+    /**
+     * Get subtipoMedio
+     *
+     * @return \Vallas\ModelBundle\Entity\SubtipoMedio
+     */
+    public function getSubtipoMedio()
+    {
+        return $this->subtipoMedio;
+    }
+
+    /**
+     * Add propuestaDetalleOutdoor
+     *
+     * @param \Vallas\ModelBundle\Entity\PropuestaDetalleOutdoor $propuestaDetalleOutdoor
+     *
+     * @return PropuestaDetalle
+     */
+    public function addPropuestaDetalleOutdoor(\Vallas\ModelBundle\Entity\PropuestaDetalleOutdoor $propuestaDetalleOutdoor)
+    {
+        $this->propuesta_detalle_outdoors[] = $propuestaDetalleOutdoor;
+
+        return $this;
+    }
+
+    /**
+     * Remove propuestaDetalleOutdoor
+     *
+     * @param \Vallas\ModelBundle\Entity\PropuestaDetalleOutdoor $propuestaDetalleOutdoor
+     */
+    public function removePropuestaDetalleOutdoor(\Vallas\ModelBundle\Entity\PropuestaDetalleOutdoor $propuestaDetalleOutdoor)
+    {
+        $this->propuesta_detalle_outdoors->removeElement($propuestaDetalleOutdoor);
+    }
+
+    /**
+     * Get propuestaDetalleOutdoors
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPropuestaDetalleOutdoors()
+    {
+        return $this->propuesta_detalle_outdoors;
     }
 }

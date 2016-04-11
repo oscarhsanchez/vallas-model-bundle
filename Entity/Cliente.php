@@ -765,4 +765,28 @@ class Cliente extends GenericEntity
     {
         return $this->codigo_user;
     }
+
+    /**
+     * Set telefono
+     *
+     * @param string $telefono
+     *
+     * @return Cliente
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    /**
+     * Get telefono
+     *
+     * @return string
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
 }

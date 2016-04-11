@@ -612,4 +612,28 @@ class Propuesta extends GenericEntity
     {
         return $this->codigo_user;
     }
+
+    /**
+     * Set unidadNegocio
+     *
+     * @param string $unidadNegocio
+     *
+     * @return Propuesta
+     */
+    public function setUnidadNegocio($unidadNegocio)
+    {
+        $this->unidad_negocio = $unidadNegocio;
+
+        return $this;
+    }
+
+    /**
+     * Get unidadNegocio
+     *
+     * @return string
+     */
+    public function getUnidadNegocio()
+    {
+        return $this->unidad_negocio;
+    }
 }

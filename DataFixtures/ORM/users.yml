@@ -236,6 +236,10 @@ Vallas\ModelBundle\Entity\Ubicacion:
     anio: <numberBetween(2000, 2020)>
     latitud: <numberBetween(2000, 2020)>
     longitud: <numberBetween(2000, 2020)>
+    trafico_vehicular: <medioTraficoVehicular()>
+    trafico_transeuntes: <medioTraficoTranseuntes()>
+    nivel_socioeconomico: <medioNivelSocioeconomico()>
+    categoria: <medioCategoria()>
     created_at: <dateTimeThisYear('now')>
     updated_at: <dateTimeThisYear('now')>
 
@@ -250,7 +254,7 @@ Vallas\ModelBundle\Entity\SubtipoMedio:
     updated_at: <dateTimeThisYear('now')>
 
 Vallas\ModelBundle\Entity\Medio:
-  medio_{1..50}:
+  medio_{1..100}:
     pk_medio: medio<current()>
     fk_pais: @country1
     posicion: <numberBetween(1, 10)>
@@ -258,5 +262,45 @@ Vallas\ModelBundle\Entity\Medio:
     ubicacion: @ubicacion*
     subtipoMedio: @subtipoMedio*
     coste: <numberBetween(1, 500)>
+    estatus_iluminacion: <medioEstatusIluminacion()>
+    visibilidad: <medioVisibilidad()>
     created_at: <dateTimeThisYear('now')>
     updated_at: <dateTimeThisYear('now')>
+
+Vallas\ModelBundle\Entity\Propuesta:
+  propuesta_{1..100}:
+    pais: @country1
+    empresa: @empresa*
+    anio: 2016
+    comision_user: <numberBetween(1, 1000)>
+    comision_agencia: <numberBetween(1, 1000)>
+    fecha_inicio: <dateTimeThisYear('now')>
+    fecha_fin: <dateTimeThisYear('now')>
+    catorcena: <numberBetween(1, 26)>
+    status: 1
+
+Vallas\ModelBundle\Entity\PropuestaDetalle:
+  propuestadetalle_{1..1000}:
+    propuesta: @propuesta_*
+    pais: @country1
+    plaza: @plaza*
+    unidad_negocio: <word()>
+    ubicacion: @ubicacion*
+    subtipoMedio: @subtipoMedio*
+    tipo_negociacion: <word()>
+    moneda: <word()>
+    cantidad: <numberBetween(1, 2)>
+    precio: <numberBetween(1000, 10000)>
+    tipo_cambio: <numberBetween(1, 2)>
+    total: <numberBetween(10000, 100000000)>
+
+Vallas\ModelBundle\Entity\PropuestaDetalleOutdoor:
+  propuestadetalleoutdoor_{1..10000}:
+    propuestaDetalle: @propuestadetalle_*
+    unidad_negocio: <word()>
+    tipo_negociacion: <word()>
+    medio: @medio_*
+    posicion_medio: <numberBetween(1, 10)>
+    moneda: <word()>
+    precio: <numberBetween(1000, 10000)>
+    tipo_cambio: <numberBetween(1, 2)>

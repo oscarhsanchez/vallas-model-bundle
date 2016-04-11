@@ -2,6 +2,7 @@
 
 namespace Vallas\ModelBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use ESocial\ModelBundle\Entity\GenericEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -13,6 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Medio extends GenericEntity
 {
+
     public function __toString(){
 
         $toString = '';
@@ -32,6 +34,7 @@ class Medio extends GenericEntity
     public function __construct()
     {
         $this->token = GenericEntity::generateNewToken();
+        $this->propuesta_detalle_outdoors = new ArrayCollection();
     }
 
     /**
@@ -127,6 +130,11 @@ class Medio extends GenericEntity
      * @ORM\Column(type="string", length=45, nullable = true, unique=false)
      */
     protected $estatus_inventario;
+
+    /**
+     * @ORM\OneToMany(targetEntity="PropuestaDetalleOutdoor", mappedBy="medio", cascade={"persist","remove"})
+     **/
+    protected $propuesta_detalle_outdoors;
 
         /** @ORM\Column(type="datetime", nullable = true) */
     protected $created_at;
@@ -526,5 +534,39 @@ class Medio extends GenericEntity
     public function getSubtipoMedio()
     {
         return $this->subtipoMedio;
+    }
+
+    /**
+     * Add propuestaDetalleOutdoor
+     *
+     * @param \Vallas\ModelBundle\Entity\PropuestaDetalleOutdoor $propuestaDetalleOutdoor
+     *
+     * @return Medio
+     */
+    public function addPropuestaDetalleOutdoor(\Vallas\ModelBundle\Entity\PropuestaDetalleOutdoor $propuestaDetalleOutdoor)
+    {
+        $this->propuesta_detalle_outdoors[] = $propuestaDetalleOutdoor;
+
+        return $this;
+    }
+
+    /**
+     * Remove propuestaDetalleOutdoor
+     *
+     * @param \Vallas\ModelBundle\Entity\PropuestaDetalleOutdoor $propuestaDetalleOutdoor
+     */
+    public function removePropuestaDetalleOutdoor(\Vallas\ModelBundle\Entity\PropuestaDetalleOutdoor $propuestaDetalleOutdoor)
+    {
+        $this->propuesta_detalle_outdoors->removeElement($propuestaDetalleOutdoor);
+    }
+
+    /**
+     * Get propuestaDetalleOutdoors
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPropuestaDetalleOutdoors()
+    {
+        return $this->propuesta_detalle_outdoors;
     }
 }

@@ -14,7 +14,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Ubicacion extends GenericEntity
 {
-
     public function __toString(){
         return $this->getUbicacion();
     }
@@ -24,6 +23,7 @@ class Ubicacion extends GenericEntity
         $this->token = GenericEntity::generateNewToken();
         $this->medios = new ArrayCollection();
         $this->imagenes = new ArrayCollection();
+        $this->propuesta_detalles = new ArrayCollection();
     }
 
     /**
@@ -228,6 +228,11 @@ class Ubicacion extends GenericEntity
      * @ORM\OneToMany(targetEntity="Medio", mappedBy="ubicacion", cascade={"persist","remove"})
      **/
     protected $medios;
+
+    /**
+     * @ORM\OneToMany(targetEntity="PropuestaDetalle", mappedBy="ubicacion", cascade={"persist","remove"})
+     **/
+    protected $propuesta_detalles;
 
 
     /**
@@ -992,5 +997,40 @@ class Ubicacion extends GenericEntity
     public function getMedios()
     {
         return $this->medios;
+    }
+
+
+    /**
+     * Add propuestaDetalle
+     *
+     * @param \Vallas\ModelBundle\Entity\PropuestaDetalle $propuestaDetalle
+     *
+     * @return Ubicacion
+     */
+    public function addPropuestaDetalle(\Vallas\ModelBundle\Entity\PropuestaDetalle $propuestaDetalle)
+    {
+        $this->propuesta_detalles[] = $propuestaDetalle;
+
+        return $this;
+    }
+
+    /**
+     * Remove propuestaDetalle
+     *
+     * @param \Vallas\ModelBundle\Entity\PropuestaDetalle $propuestaDetalle
+     */
+    public function removePropuestaDetalle(\Vallas\ModelBundle\Entity\PropuestaDetalle $propuestaDetalle)
+    {
+        $this->propuesta_detalles->removeElement($propuestaDetalle);
+    }
+
+    /**
+     * Get propuestaDetalles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPropuestaDetalles()
+    {
+        return $this->propuesta_detalles;
     }
 }
