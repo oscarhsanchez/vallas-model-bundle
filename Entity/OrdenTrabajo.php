@@ -124,6 +124,20 @@ class OrdenTrabajo extends GenericEntity
      */
     protected $observaciones_cierre;
 
+    /**
+     * @var string
+
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    protected $version;
+
+    /**
+     * @var string
+
+     * @ORM\Column(type="string", length=100, nullable=true)
+     */
+    protected $campania;
+
     /** @ORM\Column(type="datetime", nullable = true) */
     protected $created_at;
 
@@ -562,5 +576,53 @@ class OrdenTrabajo extends GenericEntity
     public function getLogs()
     {
         return $this->logs;
+    }
+
+    /**
+     * Set version
+     *
+     * @param string $version
+     *
+     * @return OrdenTrabajo
+     */
+    public function setVersion($version)
+    {
+        $this->version = $version;
+
+        return $this;
+    }
+
+    /**
+     * Get version
+     *
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
+     * Set campania
+     *
+     * @param string $campania
+     *
+     * @return OrdenTrabajo
+     */
+    public function setCampania($campania)
+    {
+        $this->campania = $campania;
+
+        return $this;
+    }
+
+    /**
+     * Get campania
+     *
+     * @return string
+     */
+    public function getCampania()
+    {
+        return $this->campania;
     }
 }
