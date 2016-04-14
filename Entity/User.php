@@ -95,6 +95,11 @@ class User extends ESocialBaseUser
      */
     protected $porcentaje_comision = 0;
 
+    /** @ORM\Column(type="boolean", nullable=false, options={"default" = false})) */
+    protected $bool_permitir_geo_ubicaciones = false;
+
+    /** @ORM\Column(type="boolean", nullable=false, options={"default" = false})) */
+    protected $bool_geo = false;
 
     /**
      * Get id
@@ -244,5 +249,53 @@ class User extends ESocialBaseUser
     public function getUserPaises()
     {
         return $this->user_paises;
+    }
+
+    /**
+     * Set boolPermitirGeoUbicaciones
+     *
+     * @param boolean $boolPermitirGeoUbicaciones
+     *
+     * @return User
+     */
+    public function setBoolPermitirGeoUbicaciones($boolPermitirGeoUbicaciones)
+    {
+        $this->bool_permitir_geo_ubicaciones = $boolPermitirGeoUbicaciones;
+
+        return $this;
+    }
+
+    /**
+     * Get boolPermitirGeoUbicaciones
+     *
+     * @return boolean
+     */
+    public function getBoolPermitirGeoUbicaciones()
+    {
+        return $this->bool_permitir_geo_ubicaciones;
+    }
+
+    /**
+     * Set boolGeo
+     *
+     * @param boolean $boolGeo
+     *
+     * @return User
+     */
+    public function setBoolGeo($boolGeo)
+    {
+        $this->bool_geo = $boolGeo;
+
+        return $this;
+    }
+
+    /**
+     * Get boolGeo
+     *
+     * @return boolean
+     */
+    public function getBoolGeo()
+    {
+        return $this->bool_geo;
     }
 }
