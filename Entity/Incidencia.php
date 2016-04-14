@@ -151,6 +151,10 @@ class Incidencia extends GenericEntity
      **/
     protected $imagenes;
 
+    /**
+     * @ORM\OneToMany(targetEntity="LogIncidencia", mappedBy="incidencia", cascade={"persist", "remove"})
+     **/
+    protected $logs;
 
 
     /**
@@ -531,5 +535,39 @@ class Incidencia extends GenericEntity
     public function getImagenes()
     {
         return $this->imagenes;
+    }
+
+    /**
+     * Add log
+     *
+     * @param \Vallas\ModelBundle\Entity\LogIncidencia $log
+     *
+     * @return Incidencia
+     */
+    public function addLog(\Vallas\ModelBundle\Entity\LogIncidencia $log)
+    {
+        $this->logs[] = $log;
+
+        return $this;
+    }
+
+    /**
+     * Remove log
+     *
+     * @param \Vallas\ModelBundle\Entity\LogIncidencia $log
+     */
+    public function removeLog(\Vallas\ModelBundle\Entity\LogIncidencia $log)
+    {
+        $this->logs->removeElement($log);
+    }
+
+    /**
+     * Get logs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLogs()
+    {
+        return $this->logs;
     }
 }
