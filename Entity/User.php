@@ -87,6 +87,11 @@ class User extends ESocialBaseUser
      */
     protected $user_paises;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Vallas\ModelBundle\Entity\UserGeo", mappedBy="user", cascade={"persist", "remove"})
+     */
+    protected $user_geolocations;
+
 
     /**
      * @var float
@@ -297,5 +302,39 @@ class User extends ESocialBaseUser
     public function getBoolGeo()
     {
         return $this->bool_geo;
+    }
+
+    /**
+     * Add userGeolocation
+     *
+     * @param \Vallas\ModelBundle\Entity\UserGeo $userGeolocation
+     *
+     * @return User
+     */
+    public function addUserGeolocation(\Vallas\ModelBundle\Entity\UserGeo $userGeolocation)
+    {
+        $this->user_geolocations[] = $userGeolocation;
+
+        return $this;
+    }
+
+    /**
+     * Remove userGeolocation
+     *
+     * @param \Vallas\ModelBundle\Entity\UserGeo $userGeolocation
+     */
+    public function removeUserGeolocation(\Vallas\ModelBundle\Entity\UserGeo $userGeolocation)
+    {
+        $this->user_geolocations->removeElement($userGeolocation);
+    }
+
+    /**
+     * Get userGeolocations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUserGeolocations()
+    {
+        return $this->user_geolocations;
     }
 }
