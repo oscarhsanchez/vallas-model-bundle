@@ -67,7 +67,7 @@ class OrdenTrabajo extends GenericEntity
     protected $pais;
 
     /**
-     * @var Pais
+     * @var Propuesta
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Propuesta")
      * @ORM\JoinColumn(name="fk_propuesta", referencedColumnName="pk_propuesta", nullable=true)
@@ -76,7 +76,7 @@ class OrdenTrabajo extends GenericEntity
 
 
     /**
-     * @var Ubicacion
+     * @var Medio
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Medio")
      * @ORM\JoinColumn(name="fk_medio", referencedColumnName="pk_medio")
@@ -137,6 +137,14 @@ class OrdenTrabajo extends GenericEntity
      * @ORM\Column(type="string", length=100, nullable=true)
      */
     protected $campania;
+
+    /**
+     * @var MotivoOrdenesPendientes
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\MotivoOrdenesPendientes")
+     * @ORM\JoinColumn(name="fk_motivo", referencedColumnName="pk_motivo", nullable=true)
+     */
+    protected $motivo_ordenes_pendientes;
 
     /** @ORM\Column(type="datetime", nullable = true) */
     protected $created_at;
@@ -624,5 +632,29 @@ class OrdenTrabajo extends GenericEntity
     public function getCampania()
     {
         return $this->campania;
+    }
+
+    /**
+     * Set motivoOrdenesPendientes
+     *
+     * @param \Vallas\ModelBundle\Entity\MotivoOrdenesPendientes $motivoOrdenesPendientes
+     *
+     * @return OrdenTrabajo
+     */
+    public function setMotivoOrdenesPendientes(\Vallas\ModelBundle\Entity\MotivoOrdenesPendientes $motivoOrdenesPendientes = null)
+    {
+        $this->motivo_ordenes_pendientes = $motivoOrdenesPendientes;
+
+        return $this;
+    }
+
+    /**
+     * Get motivoOrdenesPendientes
+     *
+     * @return \Vallas\ModelBundle\Entity\MotivoOrdenesPendientes
+     */
+    public function getMotivoOrdenesPendientes()
+    {
+        return $this->motivo_ordenes_pendientes;
     }
 }
