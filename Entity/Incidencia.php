@@ -14,16 +14,6 @@ use ESocial\ModelBundle\Entity\GenericEntity;
 class Incidencia extends GenericEntity
 {
 
-    public function getTipoString(){
-        switch($this->getTipo()){
-            case 0: return 'Iluminación';
-            case 1: return 'Fijación';
-            case 2: return 'Instalación';
-            case 3: return 'Otros';
-        }
-        return null;
-    }
-
     public function __toString(){
         $desc = '';
 
