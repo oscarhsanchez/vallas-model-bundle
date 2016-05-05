@@ -93,6 +93,14 @@ class Ubicacion extends GenericEntity
     protected $zona_instalacion;
 
     /**
+     * @var integer
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Zona")
+     * @ORM\JoinColumn(name="fk_zona_monitoreo", referencedColumnName="pk_zona")
+     */
+    protected $zona_monitoreo;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="string", length=14, nullable = true, unique=false)
@@ -1032,5 +1040,29 @@ class Ubicacion extends GenericEntity
     public function getPropuestaDetalles()
     {
         return $this->propuesta_detalles;
+    }
+
+    /**
+     * Set zonaMonitoreo
+     *
+     * @param \Vallas\ModelBundle\Entity\Zona $zonaMonitoreo
+     *
+     * @return Ubicacion
+     */
+    public function setZonaMonitoreo(\Vallas\ModelBundle\Entity\Zona $zonaMonitoreo = null)
+    {
+        $this->zona_monitoreo = $zonaMonitoreo;
+
+        return $this;
+    }
+
+    /**
+     * Get zonaMonitoreo
+     *
+     * @return \Vallas\ModelBundle\Entity\Zona
+     */
+    public function getZonaMonitoreo()
+    {
+        return $this->zona_monitoreo;
     }
 }
