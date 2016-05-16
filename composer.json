@@ -13,7 +13,7 @@
   ],
   "require" : {
     "php": ">=5.3.3",
-    "esocial/esocial-model-bundle": "dev-master",
+    "esocial/esocial-model-bundle": "dev-devel",
     "friendsofsymfony/user-bundle": "dev-master"
   },
   "require-dev": {
