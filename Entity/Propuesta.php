@@ -102,7 +102,7 @@ class Propuesta extends GenericEntity
     protected $catorcena;
 
     /**
-     * @var Agencia
+     * @var Categoria
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\CategoriaPropuesta")
      * @ORM\JoinColumn(name="fk_categoria_propuesta", referencedColumnName="pk_categoria_propuesta", nullable=true)

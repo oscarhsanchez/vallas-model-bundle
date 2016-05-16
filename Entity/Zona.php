@@ -65,6 +65,13 @@ class Zona extends GenericEntity
     protected $nombre;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=20, nullable=true)
+     */
+    protected $codigo_user;
+
+    /**
      * @ORM\Column(type="smallint",options={"default" = 1})
      */
     protected $estado = true;

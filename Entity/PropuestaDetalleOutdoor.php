@@ -37,6 +37,31 @@ class PropuestaDetalleOutdoor extends GenericEntity
      */
     protected  $pk_propuesta_detalle_outdoor;
 
+    /**
+     * @var Pais
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Pais")
+     * @ORM\JoinColumn(name="fk_pais", referencedColumnName="pk_pais")
+     */
+    protected $pais;
+
+    /**
+     * @var Cliente
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Cliente")
+     * @ORM\JoinColumn(name="fk_cliente", referencedColumnName="pk_cliente")
+     */
+    protected $cliente;
+
+    /**
+     * @var Categori
+     *
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\CategoriaPropuesta")
+     * @ORM\JoinColumn(name="fk_categoria_propuesta", referencedColumnName="pk_categoria_propuesta", nullable=true)
+     */
+    protected $categoria;
+
+
 
     /**
      * @var PropuestaDetalle
@@ -46,12 +71,14 @@ class PropuestaDetalleOutdoor extends GenericEntity
      */
     protected $propuestaDetalle;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(type="string", length=14, nullable = false, unique=false)
-     */
-    protected $unidad_negocio;
+    /** @ORM\Column(type="date", nullable = false) */
+    protected $fecha_inicio;
+
+    /** @ORM\Column(type="date", nullable = false) */
+    protected $fecha_fin;
+
+    /** @ORM\Column(type="integer", nullable = false) */
+    protected $catorcena;
 
     /**
      * @var string
