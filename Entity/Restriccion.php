@@ -49,7 +49,7 @@ class Restriccion extends GenericEntity
      * @var Cliente
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Cliente")
-     * @ORM\JoinColumn(name="fk_cliente", referencedColumnName="pk_cliente")
+     * @ORM\JoinColumn(name="fk_cliente", referencedColumnName="pk_cliente", nullable=true)
      */
     protected $cliente;
 
@@ -66,7 +66,7 @@ class Restriccion extends GenericEntity
      * @var Cliente
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Cliente")
-     * @ORM\JoinColumn(name="fk_cliente_restriccion", referencedColumnName="pk_cliente")
+     * @ORM\JoinColumn(name="fk_cliente_restriccion", referencedColumnName="pk_cliente", nullable=true)
      */
     protected $clienteRestriccion;
 
@@ -82,7 +82,7 @@ class Restriccion extends GenericEntity
      * @var Ubicacion
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\Ubicacion", inversedBy="medios")
-     * @ORM\JoinColumn(name="fk_ubicacion", referencedColumnName="pk_ubicacion")
+     * @ORM\JoinColumn(name="fk_ubicacion", referencedColumnName="pk_ubicacion", nullable=true)
      */
     protected $ubicacion;
 
