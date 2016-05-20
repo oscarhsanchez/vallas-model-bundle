@@ -132,6 +132,11 @@ class Medio extends GenericEntity
     protected $estatus_inventario;
 
     /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    protected $score;
+
+    /**
      * @ORM\OneToMany(targetEntity="PropuestaDetalleOutdoor", mappedBy="medio", cascade={"persist","remove"})
      **/
     protected $propuesta_detalle_outdoors;

@@ -243,6 +243,7 @@ class Ubicacion extends GenericEntity
     protected $propuesta_detalles;
 
 
+
     /**
      * Set pkUbicacion
      *
