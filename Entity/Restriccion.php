@@ -54,7 +54,7 @@ class Restriccion extends GenericEntity
     protected $cliente;
 
     /**
-     * @var Categoria
+     * @var CategoriaPropuesta
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\CategoriaPropuesta")
      * @ORM\JoinColumn(name="fk_categoria", referencedColumnName="pk_categoria_propuesta", nullable=true)
@@ -71,7 +71,7 @@ class Restriccion extends GenericEntity
     protected $clienteRestriccion;
 
     /**
-     * @var Categoria
+     * @var CategoriaPropuesta
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\CategoriaPropuesta")
      * @ORM\JoinColumn(name="fk_categoria_restriccion", referencedColumnName="pk_categoria_propuesta", nullable=true)

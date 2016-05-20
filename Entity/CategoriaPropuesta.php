@@ -37,7 +37,8 @@ class CategoriaPropuesta extends GenericEntity
 
     /**
      * @ORM\Id
-     * @ORM\Column(type="string", length=15)
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
      */
     protected $pk_categoria_propuesta;
 
@@ -61,31 +62,6 @@ class CategoriaPropuesta extends GenericEntity
 
     /** @ORM\Column(type="string", length=100, unique=true) */
     protected $token;
-
-
-    /**
-     * Set pkCategoriaPropuesta
-     *
-     * @param string $pkCategoriaPropuesta
-     *
-     * @return CategoriaPropuesta
-     */
-    public function setPkCategoriaPropuesta($pkCategoriaPropuesta)
-    {
-        $this->pk_categoria_propuesta = $pkCategoriaPropuesta;
-
-        return $this;
-    }
-
-    /**
-     * Get pkCategoriaPropuesta
-     *
-     * @return string
-     */
-    public function getPkCategoriaPropuesta()
-    {
-        return $this->pk_categoria_propuesta;
-    }
 
     /**
      * Set nombre
@@ -205,5 +181,29 @@ class CategoriaPropuesta extends GenericEntity
     public function getToken()
     {
         return $this->token;
+    }
+
+    /**
+     * Get pkCategoriaPropuesta
+     *
+     * @return int
+     */
+    public function getPkCategoriaPropuesta()
+    {
+        return $this->pk_categoria_propuesta;
+    }
+
+    /**
+     * Set pkCategoriaPropuesta
+     *
+     * @param string $pkCategoriaPropuesta
+     *
+     * @return CategoriaPropuesta
+     */
+    public function setPkCategoriaPropuesta($pkCategoriaPropuesta)
+    {
+        $this->pk_categoria_propuesta = $pkCategoriaPropuesta;
+    
+        return $this;
     }
 }

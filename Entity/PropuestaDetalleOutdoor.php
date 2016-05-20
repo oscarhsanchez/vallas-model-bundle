@@ -54,14 +54,12 @@ class PropuestaDetalleOutdoor extends GenericEntity
     protected $cliente;
 
     /**
-     * @var Categori
+     * @var CategoriaPropuesta
      *
      * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\CategoriaPropuesta")
      * @ORM\JoinColumn(name="fk_categoria_propuesta", referencedColumnName="pk_categoria_propuesta", nullable=true)
      */
     protected $categoria;
-
-
 
     /**
      * @var PropuestaDetalle
