@@ -458,4 +458,148 @@ class PropuestaDetalleOutdoor extends GenericEntity
     {
         return $this->medio;
     }
+
+    /**
+     * Set fechaInicio
+     *
+     * @param \DateTime $fechaInicio
+     *
+     * @return PropuestaDetalleOutdoor
+     */
+    public function setFechaInicio($fechaInicio)
+    {
+        $this->fecha_inicio = $fechaInicio;
+    
+        return $this;
+    }
+
+    /**
+     * Get fechaInicio
+     *
+     * @return \DateTime
+     */
+    public function getFechaInicio()
+    {
+        return $this->fecha_inicio;
+    }
+
+    /**
+     * Set fechaFin
+     *
+     * @param \DateTime $fechaFin
+     *
+     * @return PropuestaDetalleOutdoor
+     */
+    public function setFechaFin($fechaFin)
+    {
+        $this->fecha_fin = $fechaFin;
+    
+        return $this;
+    }
+
+    /**
+     * Get fechaFin
+     *
+     * @return \DateTime
+     */
+    public function getFechaFin()
+    {
+        return $this->fecha_fin;
+    }
+
+    /**
+     * Set catorcena
+     *
+     * @param int $catorcena
+     *
+     * @return PropuestaDetalleOutdoor
+     */
+    public function setCatorcena($catorcena)
+    {
+        $this->catorcena = $catorcena;
+    
+        return $this;
+    }
+
+    /**
+     * Get catorcena
+     *
+     * @return int
+     */
+    public function getCatorcena()
+    {
+        return $this->catorcena;
+    }
+
+    /**
+     * Set pais
+     *
+     * @param \Vallas\ModelBundle\Entity\Pais $pais
+     *
+     * @return PropuestaDetalleOutdoor
+     */
+    public function setPais(\Vallas\ModelBundle\Entity\Pais $pais = null)
+    {
+        $this->pais = $pais;
+    
+        return $this;
+    }
+
+    /**
+     * Get pais
+     *
+     * @return \Vallas\ModelBundle\Entity\Pais
+     */
+    public function getPais()
+    {
+        return $this->pais;
+    }
+
+    /**
+     * Set cliente
+     *
+     * @param \Vallas\ModelBundle\Entity\Cliente $cliente
+     *
+     * @return PropuestaDetalleOutdoor
+     */
+    public function setCliente(\Vallas\ModelBundle\Entity\Cliente $cliente = null)
+    {
+        $this->cliente = $cliente;
+    
+        return $this;
+    }
+
+    /**
+     * Get cliente
+     *
+     * @return \Vallas\ModelBundle\Entity\Cliente
+     */
+    public function getCliente()
+    {
+        return $this->cliente;
+    }
+
+    /**
+     * Set categoria
+     *
+     * @param \Vallas\ModelBundle\Entity\CategoriaPropuesta $categoria
+     *
+     * @return PropuestaDetalleOutdoor
+     */
+    public function setCategoria(\Vallas\ModelBundle\Entity\CategoriaPropuesta $categoria = null)
+    {
+        $this->categoria = $categoria;
+    
+        return $this;
+    }
+
+    /**
+     * Get categoria
+     *
+     * @return \Vallas\ModelBundle\Entity\CategoriaPropuesta
+     */
+    public function getCategoria()
+    {
+        return $this->categoria;
+    }
 }

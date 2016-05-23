@@ -65,6 +65,13 @@ class Zona extends GenericEntity
     protected $nombre;
 
     /**
+     * @var User
+     * @ORM\ManyToOne(targetEntity="Vallas\ModelBundle\Entity\User")
+     * @ORM\JoinColumn(name="fk_user", referencedColumnName="id")
+     */
+    protected $user;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="string", length=20, nullable=true)
@@ -276,5 +283,53 @@ class Zona extends GenericEntity
     public function getPais()
     {
         return $this->pais;
+    }
+
+    /**
+     * Set codigoUser
+     *
+     * @param string $codigoUser
+     *
+     * @return Zona
+     */
+    public function setCodigoUser($codigoUser)
+    {
+        $this->codigo_user = $codigoUser;
+    
+        return $this;
+    }
+
+    /**
+     * Get codigoUser
+     *
+     * @return string
+     */
+    public function getCodigoUser()
+    {
+        return $this->codigo_user;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Vallas\ModelBundle\Entity\User $user
+     *
+     * @return Zona
+     */
+    public function setUser(\Vallas\ModelBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Vallas\ModelBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

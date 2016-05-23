@@ -574,4 +574,28 @@ class Medio extends GenericEntity
     {
         return $this->propuesta_detalle_outdoors;
     }
+
+    /**
+     * Set score
+     *
+     * @param float $score
+     *
+     * @return Medio
+     */
+    public function setScore($score)
+    {
+        $this->score = $score;
+    
+        return $this;
+    }
+
+    /**
+     * Get score
+     *
+     * @return float
+     */
+    public function getScore()
+    {
+        return $this->score;
+    }
 }
