@@ -24,6 +24,9 @@ class User extends ESocialBaseUser
 
     public function setPermissions($permissions){
         $this->permissions = $permissions;
+        foreach ($permissions as $c) {
+            $c->setUser($this);
+        }
     }
 
     public function setUserPaises(\Doctrine\Common\Collections\Collection $user_paises){
